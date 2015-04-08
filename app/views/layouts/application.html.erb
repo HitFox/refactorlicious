@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if user_signed_in? %>
+    <h3>You are logged in <%= current_user.first_name %></h3>
+    <%= link_to "Logout", session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login with Google", omniauth_authorize_path(:user, :google_oauth2) %>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
