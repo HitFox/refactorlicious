@@ -8,9 +8,9 @@
     = csrf_meta_tags
   %body
     - if notice
-      notice
+      %p.flashmessage.notice= notice
     - if alert
-      alert
+      %p.flashmessage.alert= alert
     - if user_signed_in?
       %h3
         You are logged in #{current_user.first_name}
