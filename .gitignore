@@ -33,6 +33,7 @@ bower.json
 
 i# Ignore pow environment settings
 .powenv
+.env
 
 # ingore database configuration
 /config/database.yml
