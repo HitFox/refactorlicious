@@ -31,5 +31,8 @@ config/secrets.yml
 *.bowerrc
 bower.json
 
-# Ignore pow environment settings
+i# Ignore pow environment settings
 .powenv
+
+# ingore database configuration
+/config/database.yml
