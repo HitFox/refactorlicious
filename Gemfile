@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'haml-rails'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
