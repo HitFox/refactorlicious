@@ -11,5 +11,76 @@ body, ul, h1, p, a, textarea, figure {
 
 a {
   text-decoration: none;
-  color: $black;
+}
+
+.content {
+  margin-top: 3em;
+  text-align: center;
+  height: calc(100vh - 3em);
+  background-color: #EEFCEF;
+  overflow: auto;
+}
+
+section {
+  width: 35em;
+  margin: auto;
+  text-align: justify;
+}
+
+section.about {
+  p {
+    margin: 1em 0;
+  }
+}
+
+#logo {
+  margin-top: 12%;
+  margin-bottom: 8%;
+
+  img {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $white;
+  opacity: .95;
+  top: 0;
+  height: 3em;
+  line-height: 3em;
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .menu-item {
+      display: inline-block;
+      margin-right: 1em;
+
+      a {
+        color: $black;
+      }
+
+      &:not(:last-child):after {
+        content: "";
+        position: relative;
+        top: .1em;
+        right: -0.5em;
+        border-right: 1px solid;
+      }
+    }
+  }
+
+  .logo {
+    margin-left: 1em;
+
+    img {
+      height: 3em;
+    }
+  }
 }

@@ -2,3 +2,25 @@
 @import "variables";
 @import "mixins";
 @import "globals";
+
+.flashmessage {
+  z-index: 10;
+  padding: .5em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  @include transition(opacity 0.3s ease);
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  &.notice {
+    background-color: $turquoise;
+  }
+
+  &.alert {
+    background-color: $red;
+  }
+}

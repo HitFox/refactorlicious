@@ -11,10 +11,14 @@
       %p.flashmessage.notice= notice
     - if alert
       %p.flashmessage.alert= alert
-    - if user_signed_in?
-      %h3
-        You are logged in #{current_user.first_name}
-      = link_to "Logout", session_path, method: :delete
-    - else
-      = link_to "Login with Google", omniauth_authorize_path(:user, :google_oauth2)
-    = yield
+    %header
+      .logo
+        = link_to image_tag('refactorlicious.png'), root_path
+      .menu
+        - if user_signed_in?
+          .menu-item= link_to "Exercises", exercises_index_path
+          .menu-item= link_to "Logout", session_path, method: :delete
+        - else
+          .menu-item= link_to "Login", omniauth_authorize_path(:user, :google_oauth2)
+    .content
+      = yield
