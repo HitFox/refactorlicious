@@ -16,7 +16,7 @@
         = link_to image_tag('refactorlicious.png'), root_path
       .menu
         - if user_signed_in?
-          .menu-item= link_to "Exercises", exercises_index_path
+          .menu-item= link_to "Exercises", exercises_path
           .menu-item= link_to "Logout", session_path, method: :delete
         - else
           .menu-item= link_to "Login", omniauth_authorize_path(:user, :google_oauth2)

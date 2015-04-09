@@ -11,6 +11,7 @@ body, ul, h1, p, a, textarea, figure {
 
 a {
   text-decoration: none;
+  color: $black;
 }
 
 .content {
@@ -62,10 +63,6 @@ header {
       display: inline-block;
       margin-right: 1em;
 
-      a {
-        color: $black;
-      }
-
       &:not(:last-child):after {
         content: "";
         position: relative;
@@ -78,6 +75,7 @@ header {
 
   .logo {
     margin-left: 1em;
+    line-height: 1em;
 
     img {
       height: 3em;

@@ -1,2 +1,6 @@
-%h1 Exercises#index
-%p Find me in app/views/exercises/index.html.erb
+- @exercise_categories.each do |exercise_category|
+  %h3= "#{exercise_category.name}"
+  %ul
+    - exercise_category.exercises.each do |exercise|
+      %li= link_to "Exercise #{exercise.id}", exercise_path(exercise)
+

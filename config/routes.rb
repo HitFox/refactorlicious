@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  get 'exercises/show'
-  get 'exercises/index'
+  resources :exercises, only: [:show, :index]
 
   resource :session, only: :destroy do
     get :error
