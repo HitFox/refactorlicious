@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408134500) do
+ActiveRecord::Schema.define(version: 20150409121339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercise_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "exercise_statuses", force: :cascade do |t|
     t.integer  "exercise_id"
@@ -25,12 +32,12 @@ ActiveRecord::Schema.define(version: 20150408134500) do
   end
 
   create_table "exercises", force: :cascade do |t|
-    t.string   "name"
     t.integer  "points"
     t.string   "solution"
     t.string   "code_to_refactor"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "exercise_category_id"
   end
 
   create_table "users", force: :cascade do |t|
