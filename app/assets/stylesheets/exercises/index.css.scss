@@ -1,0 +1,44 @@
+ul {
+  list-style-type: none;
+  text-align: center;
+
+  li {
+    font-family: 'Inconsolata';
+  }
+}
+
+.exercises {
+  width: 50%;
+  margin: auto;
+  margin-top: 8em;
+  margin-bottom: 10em;
+}
+
+.exercise-category {
+  color: $black;
+  font-size: 2.5em;
+  line-height: 2.5em;
+  background-color: white;
+  margin: 2em auto;
+  box-shadow: inset 4px 4px $green, inset -4px -4px $green;
+}
+
+.exercise {
+  font-size: 1.3em;
+  line-height: 3em;
+  margin: 1.3em auto;
+  width: 98%;
+  background-color: $green;
+
+  &:hover {
+    box-shadow: inset 3px 3px $white, inset -3px -3px $white;
+
+    a {
+      color: $white;
+    }
+  }
+
+  a {
+    display: block;
+  }
+}

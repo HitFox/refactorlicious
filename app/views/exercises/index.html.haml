@@ -1,6 +1,7 @@
-- @exercise_categories.each do |exercise_category|
-  %h3= "#{exercise_category.name}"
-  %ul
-    - exercise_category.exercises.each do |exercise|
-      %li= link_to "Exercise #{exercise.id}", exercise_path(exercise)
+.exercises
+  - @exercise_categories.each do |exercise_category|
+    %h3.exercise-category= "#{exercise_category.name}"
+    %ul
+      - exercise_category.exercises.each_with_index do |exercise, i|
+        %li.exercise= link_to "Exercise #{i + 1}", exercise_path(exercise)
 
