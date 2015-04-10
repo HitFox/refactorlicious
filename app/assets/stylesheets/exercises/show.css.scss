@@ -9,16 +9,55 @@
   width: 33%;
   background-color: $turquoise;
 
-  ul li {
-    display: inline;
+  .navigation {
+    background-color: $grey;
+    height: 3.8em;
+
+    .active {
+      background-color: $turquoise;
+
+      a {
+        color: $white;
+      }
+    }
+
+    ul li {
+      float: left;
+      width: 50%;
+      height: 3.8em;
+      line-height: 3.8em;
+
+      a {
+        color: $black;
+        display: block;
+        height: 100%;
+      }
+    }
   }
 
   .introduction, .code-challenge {
     padding: 2em;
   }
+
+  .code-challenge {
+    display: none;
+  }
 }
 
 .editor {
+  width: 67%;
+
+  .welcome {
+    font-size: 1.5em;
+    height: 2.5em;
+    color: $white;
+    line-height: 2.5em;
+    background-color: $red;
+    text-align: center;
+    position: fixed;
+    left: 33%;
+    right: 0;
+  }
 
   footer {
     background-color: $white;
