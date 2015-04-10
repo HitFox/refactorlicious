@@ -17,7 +17,7 @@
 
 $(document).on('page:change', function(){
   $('.navigation ul li a').on('click', function(e)  {
-    // e.preventDefault();
+    e.preventDefault();
     var currentAttrValue = $(this).attr('href');
 
     // Show/Hide Tabs

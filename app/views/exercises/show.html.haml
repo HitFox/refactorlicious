@@ -8,11 +8,11 @@
   .tabs
     .introduction{id: "introduction"}
       %h3= @exercise.exercise_category.name
-      %p= @exercise.exercise_category.description
-      %p= @exercise.exercise_category.example
+      %p= markdown(@exercise.exercise_category.description)
+      %h3 Example
+      %p= markdown("```ruby\n#{@exercise.exercise_category.example}\n```")
     .code-challenge{id: "code-challenge"}
-      %h3 Code Challenge
-      %p= @exercise.code_to_refactor
+      %p= markdown("```ruby\n#{@exercise.code_to_refactor}\n```")
 .editor
   .welcome
     %p Please enter your code in the editor below!
