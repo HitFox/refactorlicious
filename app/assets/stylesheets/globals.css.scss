@@ -9,6 +9,11 @@ body, ul, h1, p, a, textarea, figure {
   padding: 0;
 }
 
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
 a {
   text-decoration: none;
   color: $black;

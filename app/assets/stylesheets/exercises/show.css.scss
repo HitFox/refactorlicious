@@ -1,0 +1,52 @@
+.instructions, .editor {
+  display: inline-block;
+  float: left;
+  text-align: left;
+}
+
+.instructions {
+  height: 100%;
+  width: 33%;
+  background-color: $turquoise;
+
+  ul li {
+    display: inline;
+  }
+
+  .introduction, .code-challenge {
+    padding: 2em;
+  }
+}
+
+.editor {
+
+  footer {
+    background-color: $white;
+    width: 67%;
+    position: absolute;
+    bottom: 0;
+
+    .help, .next {
+      display: inline-block;
+      margin: 1em;
+      padding: .65em 1em;
+      color: $white;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+
+    .help {
+      background-color: $red;
+      margin-left: 1.5em;
+    }
+
+    .next {
+      background-color: $green;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

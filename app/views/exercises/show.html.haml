@@ -1,2 +1,19 @@
-%h1 I'm Exercise #{@exercise.id}
-%h3 My category is #{@exercise.exercise_category.name}
+.instructions
+  .navigation
+    %ul
+      %li
+        %a{href: "introduction", class: "selcted"} INTRODUCTION
+      %li
+        %a{href: "code-challenge"} CODE CHALLENGE
+  .introduction{id: "introduction"}
+    %h3= @exercise.exercise_category.name
+    %p= @exercise.exercise_category.description
+    %p= @exercise.exercise_category.example
+  .code-challenge{id: "code-challenge"}
+    %h3 Code Challenge
+    %p= @exercise.code_to_refactor
+.editor
+  .wrapper
+  %footer
+    .help Hint
+    .next Next
