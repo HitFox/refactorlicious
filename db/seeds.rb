@@ -105,7 +105,7 @@ EXAMPLE
 end
 
 Exercise.create.tap do |e|
-  e.points = 10
+  e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Introduce Explaining Variable").id
   e.code_to_refactor = <<CODE
 def price
@@ -127,7 +127,7 @@ CODE
 end
 
 Exercise.create.tap do |e|
-  e.points = 5
+  e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
 def get_rating
@@ -147,7 +147,7 @@ CODE
 end
 
 Exercise.create.tap do |e|
-  e.points = 5
+  e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
 def get_score
@@ -167,7 +167,7 @@ CODE
 end
 
 Exercise.create.tap do |e|
-  e.points = 5
+  e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
 def get_chocolate_eggs
@@ -187,7 +187,7 @@ CODE
 end
 
 Exercise.create.tap do |e|
-  e.points = 10
+  e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
   e.code_to_refactor = <<'CODE'
 def print_owing
@@ -235,7 +235,7 @@ CODE
 end
 
 Exercise.create.tap do |e|
-  e.points = 15
+  e.points = 25
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
   e.code_to_refactor = <<'CODE'
 def print_owing

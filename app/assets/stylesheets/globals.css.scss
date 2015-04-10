@@ -19,6 +19,18 @@ a {
   color: $black;
 }
 
+.exercise.easy {
+  background-color: $easy;
+}
+
+.exercise.medium {
+  background-color: $medium;
+}
+
+.exercise.difficult {
+  background-color: $difficult;
+}
+
 .content {
   margin-top: 3em;
   text-align: center;
