@@ -17,10 +17,11 @@
 .editor
   .welcome
     %p Please enter your code in the editor below!
-  .wrapper
+  #wrapper
   %footer
     .help Hint
-    .next Next
+    .prev= link_to "Prev", exercise_path(prev_exercise)
+    .next= link_to "Next", exercise_path(next_exercise)
     .solution
       %h2 Solution
       %pre.code-highlight= highlight(@exercise.solution)

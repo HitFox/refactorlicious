@@ -23,4 +23,20 @@ module ApplicationHelper
       :css => :style
     ).html_safe
   end
+
+  def prev_exercise
+    if @exercise.id == 1
+      @exercise
+    else
+      Exercise.find(@exercise.id - 1)
+    end
+  end
+
+  def next_exercise
+    if @exercise.id == Exercise.last.id
+      @exercise
+    else
+      Exercise.find(@exercise.id + 1)
+    end
+  end
 end
