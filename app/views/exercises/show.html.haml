@@ -10,9 +10,9 @@
       %h3= @exercise.exercise_category.name
       %p= markdown(@exercise.exercise_category.description)
       %h3 Example
-      = markdown("```ruby\n#{@exercise.exercise_category.example}```")
+      %pre.code-highlight= highlight(@exercise.exercise_category.example)
     .code-challenge{id: "code-challenge"}
-      %p= markdown("```ruby\n#{@exercise.code_to_refactor}\n```")
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor
   .welcome
     %p Please enter your code in the editor below!

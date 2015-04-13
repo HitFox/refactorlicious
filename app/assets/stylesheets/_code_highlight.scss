@@ -1,0 +1,12 @@
+.code-highlight {
+  background-color: $grey;
+  overflow: auto;
+  padding: 1em 0.5em;
+  border-radius: 5px;
+
+  .line-numbers {
+    margin-right: 0.75em;
+    padding-right: 0.25em;
+    border-right: 1px solid lighten($black, 50);
+  }
+}
