@@ -16,7 +16,7 @@
   }
 
   .navigation {
-    background-color: $grey;
+    background-color: $light-grey;
     height: 3.8em;
     position: fixed;
     z-index: 1;
@@ -75,8 +75,10 @@
   footer {
     background-color: $white;
     width: 67%;
+    height: calc(100vh - 6.8em);
     position: fixed;
-    bottom: 0;
+    top: calc(100vh - 4.8em);
+    @include transition(top .5s ease);
 
     .help, .next {
       display: inline-block;
@@ -99,6 +101,15 @@
       background-color: $green;
       position: absolute;
       right: 0;
+    }
+
+    .solution {
+      margin: 2em 3em 0 3.5em;
+    }
+
+    &.is-extended {
+      height: 100%;
+      top: 6.8em;
     }
   }
 }

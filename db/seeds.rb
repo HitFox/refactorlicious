@@ -23,7 +23,6 @@ First, it increases the chances that other methods can use a method when the met
 4. Replace the extracted code in the source method with a call to the target method.
 TEXT
   ec.example = <<'EXAMPLE'
-
 def print_owing(amount)
   print_banner
   puts "name: #{@name}"
@@ -56,8 +55,7 @@ Sometimes you come across a method in which the body is as clear as the name. In
 
 3.Replace each call with the method body.
 TEXT
-  ec.example = <<EXAMPLE
-
+  ec.example = <<'EXAMPLE'
 def get_rating
   more_than_five_late_deliveries ? 2 : 1
 end
@@ -84,8 +82,7 @@ Expressions can become complex and hard to read. In such situations temporary va
 
 2. Replace the result part of the expression with the value of the temp.
 TEXT
- ec.example = <<EXAMPLE
-
+ ec.example = <<'EXAMPLE'
 if (platform.upcase.index("MAC") &&
   browser.upcase.index("IE") &&
   initialized? &&
@@ -111,7 +108,6 @@ Exercise.create.tap do |e|
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Introduce Explaining Variable").id
   e.code_to_refactor = <<CODE
-
 def price
   # price is base price - quantity discount + shipping
   return @quantity * @item_price -
@@ -120,7 +116,6 @@ def price
 end
 CODE
   e.solution = <<CODE
-
 def price
   base_price = @quantity * @item_price
   quantity_discount = [0, @quantity - 500].max * @item_price * 0.05
@@ -135,7 +130,6 @@ Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
-
 def get_rating
   more_than_five_late_deliveries ? 2 : 1
 end
@@ -145,7 +139,6 @@ def more_than_five_late_deliveries
 end
 CODE
   e.solution = <<CODE
-
 def get_rating
   @number_of_late_deliveries > 5 ? 2 : 1
 end
@@ -157,7 +150,6 @@ Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
-
 def get_score
   more_than_ten_votes ? base_score * 1.05 : base_score
 end
@@ -167,7 +159,6 @@ def more_than_ten_votes
 end
 CODE
   e.solution = <<CODE
-
 def get_score
   @votes > 10 ? base_score * 1.05 : base_score
 end
@@ -179,7 +170,6 @@ Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
   e.code_to_refactor = <<CODE
-
 def get_chocolate_eggs
   older_than_10 ? 1 : 2
 end
@@ -189,7 +179,6 @@ def older_than_10
 end
 CODE
   e.solution = <<CODE
-
 def get_chocolate_eggs
   self.age > 10 ? 1 : 2
 end
@@ -201,7 +190,6 @@ Exercise.create.tap do |e|
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
   e.code_to_refactor = <<'CODE'
-
 def print_owing
   outstanding = 0.0
 
@@ -221,7 +209,6 @@ def print_owing
 end
 CODE
   e.solution = <<'CODE'
-
 def print_owing
   outstanding = 0.0
 
@@ -251,7 +238,6 @@ Exercise.create.tap do |e|
   e.points = 25
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
   e.code_to_refactor = <<'CODE'
-
 def print_owing
   outstanding = 0.0
 
@@ -275,7 +261,6 @@ def print_banner
 end
 CODE
   e.solution = <<'CODE'
-
 def print_owing
   print_banner
   outstanding = calculate_outstanding

@@ -26,5 +26,13 @@ $(document).on('page:change', function(){
     // Change/remove current tab to active
     $(this).parent('li').addClass('active').siblings().removeClass('active');
 
-  }); 
+  });
+
+  // Extend the footer
+  var $footer = $('footer');
+  var $helpButton = $('.help');
+
+  $helpButton.on('click', function(){
+    $footer.toggleClass('is-extended');
+  });
 });

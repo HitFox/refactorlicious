@@ -12,6 +12,7 @@
       %h3 Example
       %pre.code-highlight= highlight(@exercise.exercise_category.example)
     .code-challenge{id: "code-challenge"}
+      %h3 Please refactor the following code:
       %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor
   .welcome
@@ -20,3 +21,6 @@
   %footer
     .help Hint
     .next Next
+    .solution
+      %h2 Solution
+      %pre.code-highlight= highlight(@exercise.solution)
