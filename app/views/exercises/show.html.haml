@@ -10,7 +10,7 @@
       %h3= @exercise.exercise_category.name
       %p= markdown(@exercise.exercise_category.description)
       %h3 Example
-      %p= markdown("```ruby\n#{@exercise.exercise_category.example}\n```")
+      = markdown("```ruby\n#{@exercise.exercise_category.example}```")
     .code-challenge{id: "code-challenge"}
       %p= markdown("```ruby\n#{@exercise.code_to_refactor}\n```")
 .editor

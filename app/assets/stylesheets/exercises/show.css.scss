@@ -50,22 +50,18 @@
     padding-top: 1em;
     background-color: $turquoise;
 
-    pre {
-      background-color: $grey;
-      overflow: auto;
-      padding: 1.5em;
-      border-radius: 5px;
-
-      code {
-        position: relative;
-        left: -8em; /* A little hacky, not sure why so much space */
-      }
-    }
   }
 
   .code-challenge {
     display: none;
   }
+}
+
+pre {
+  background-color: $grey;
+  overflow: auto;
+  padding: 1.5em;
+  border-radius: 5px;
 }
 
 .editor {
