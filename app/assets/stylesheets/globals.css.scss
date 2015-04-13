@@ -20,15 +20,39 @@ a {
 }
 
 .exercise.easy {
-  background-color: $easy;
+  border-color: $easy;
+
+  a:hover {
+    color: $easy;
+  }
+
+  .points {
+    background-color: $easy;
+  }
 }
 
 .exercise.medium {
-  background-color: $medium;
+  border-color: $medium;
+
+  a:hover {
+    color: $medium;
+  }
+
+  .points {
+    background-color: $medium;
+  }
 }
 
 .exercise.difficult {
-  background-color: $difficult;
+  border-color: $difficult;
+
+  a:hover {
+    color: $difficult;
+  }
+
+  .points {
+    background-color: $difficult;
+  }
 }
 
 .content {
@@ -67,6 +91,7 @@ header {
   z-index: 20;
   position: fixed;
   width: 100%;
+  opacity: .98;
   background-color: $white;
   top: 0;
   height: 3em;

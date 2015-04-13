@@ -1,36 +1,58 @@
-.exercises {
+.exercises-container {
   width: 50%;
   margin: auto;
-  margin-top: 8em;
+  margin-top: 6em;
   margin-bottom: 10em;
 }
 
 .exercise-category {
+  text-align: left;
   color: $black;
   font-size: 2.5em;
   line-height: 2.5em;
-  background-color: white;
-  margin: 2em auto;
-  box-shadow: inset 4px 4px $green, inset -4px -4px $green;
+  margin: 3em auto;
+  margin-bottom: 1em;
+  box-shadow: inset 0 -2px $light-black;
+}
+
+.exercises {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  li {
+    -webkit-flex: 1;
+    flex: 1;
+    min-width: 14em;
+    margin: 1.3em .5em;
+
+    a {
+      line-height: 1em;
+      font-size: 4em;
+    }
+  }
 }
 
 .exercise {
-  font-family: 'Inconsolata';
+  position: relative;
   font-size: 1.3em;
   line-height: 3em;
-  margin: 1.3em auto;
+  border: 4px solid;
+  height: 8em;
   width: 98%;
-  background-color: $green;
-
-  &:hover {
-    box-shadow: inset 3px 3px $white, inset -3px -3px $white;
-
-    a {
-      color: $white;
-    }
-  }
 
   a {
+    background-color: $white;
     display: block;
+    height: 100%;
   }
+}
+
+.points {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 }
