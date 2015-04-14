@@ -50,5 +50,6 @@ group :development, :test do
   gem 'capybara'
   gem 'dotenv-rails'
   gem 'faker'
+  gem 'launchy', require: false
 end
 
