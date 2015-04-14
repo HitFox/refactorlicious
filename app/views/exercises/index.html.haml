@@ -1,6 +1,6 @@
 - alphabet = ("A".."Z").to_a
 .exercises-container
-  - @exercise_categories.each do |exercise_category|
+  - @decorated_exercise_categories.each do |exercise_category|
     %h3.exercise-category= "#{exercise_category.name}"
     %ul{class: "exercises"}
       - exercise_category.exercises.each_with_index do |exercise, i|
@@ -9,3 +9,5 @@
             = link_to alphabet[i], exercise_path(exercise)
             .points
               = "#{exercise.points} points"
+            .status
+              = exercise.status

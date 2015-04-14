@@ -8,7 +8,7 @@ namespace :user do
     user.exercise_statuses.create(exercise_id: 2, finished: true)
     user.exercise_statuses.create(exercise_id: 3, finished: true)
     user.exercise_statuses.create(exercise_id: 5, finished: true)
-    user.exercise_statuses.create(exercise_id: 5)
+    user.exercise_statuses.create(exercise_id: 1)
     user.save
   end
 end

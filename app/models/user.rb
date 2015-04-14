@@ -11,4 +11,18 @@ class User < ActiveRecord::Base
     user.profile_picture = auth.info.image
     user
   end
+
+  def exercise_status_hash
+    @exercise_status_hash ||= generate_exercise_status_hash
+  end
+
+  private
+  def generate_exercise_status_hash
+    result = Hash.new
+    exercise_statuses.each do |exercise_status|
+      status = exercise_status.finished ? "finished" : "incomplete"
+      result[exercise_status.exercise_id] = status
+    end
+    return result
+  end
 end
