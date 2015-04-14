@@ -8,7 +8,7 @@ This application helps users practice common methods to refactor ruby code.
 
 1. Register a new Google application that has access to contacts and the google + API (or get in touch with @mmlkrx for the credentials ;).
 
-2. Run `rake db:create && rake db:migrate && rake db:seed`.
+2. Run `rake db:setup`.
 
 3. Start your local server and log into the app with your Google account.
 
