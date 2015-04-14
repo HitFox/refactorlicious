@@ -36,3 +36,6 @@ bower.json
 
 # ingore database configuration
 /config/database.yml
+
+#ignore rbenv ruby version configuration
+.ruby-version
