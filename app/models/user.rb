@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :rememberable, :trackable
   has_many :exercise_statuses
   has_many :exercises, through: :exercise_statuses
+  validates_presence_of :first_name, :last_name, :email
 
   def self.from_omniauth(auth)
     user = User.find_or_initialize_by(email: auth.info.email)

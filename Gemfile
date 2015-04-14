@@ -37,6 +37,7 @@ gem 'omniauth-google-oauth2'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'coderay', '~> 1.1.0'
+gem 'shoulda-matchers', group: :test
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -48,6 +49,6 @@ group :development, :test do
   gem 'pry'
   gem 'capybara'
   gem 'dotenv-rails'
-
+  gem 'faker'
 end
 
