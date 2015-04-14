@@ -25,18 +25,20 @@ module ApplicationHelper
   end
 
   def prev_exercise
-    if @exercise.id == 1
-      @exercise
+    prev_exercise = Exercise.find_by(id: @exercise.id - 1)
+    if prev_exercise
+      prev_exercise
     else
-      Exercise.find(@exercise.id - 1)
+      @exercise
     end
   end
 
   def next_exercise
-    if @exercise.id == Exercise.last.id
-      @exercise
+    next_exercise = Exercise.find_by(id: @exercise.id + 1)
+    if next_exercise
+      next_exercise
     else
-      Exercise.find(@exercise.id + 1)
+      @exercise
     end
   end
 end
