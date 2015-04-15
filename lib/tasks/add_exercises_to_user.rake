@@ -5,10 +5,10 @@ namespace :user do
     fail("Please sign in with Google before continuing.") if User.count == 0
 
     user = User.last
-    user.exercise_statuses.create(exercise_id: 2, finished: true)
-    user.exercise_statuses.create(exercise_id: 3, finished: true)
-    user.exercise_statuses.create(exercise_id: 5, finished: true)
-    user.exercise_statuses.create(exercise_id: 1)
+    user.exercise_statuses.create(exercise_id: 2, status: ExerciseStatus.statuses[:finished])
+    user.exercise_statuses.create(exercise_id: 3, status: ExerciseStatus.statuses[:finished])
+    user.exercise_statuses.create(exercise_id: 5, status: ExerciseStatus.statuses[:finished])
+    user.exercise_statuses.create(exercise_id: 1, status: ExerciseStatus.statuses[:incomplete])
     user.save
   end
 end

@@ -3,9 +3,6 @@ class ExerciseDecorator < Draper::Decorator
 
   def status
     status = h.current_user.exercise_status_hash[object.id]
-    if (status.nil?)
-      status = "not started"
-    end
-    return status
+    status.present? ? status : status = "not started"
   end
 end
