@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   def generate_exercise_status_hash
     result = Hash.new
     exercise_statuses.each do |exercise_status|
-      status = exercise_status.finished ? "finished" : "incomplete"
+      status = exercise_status.finished ? "is-finished" : "is-incomplete"
       result[exercise_status.exercise_id] = status
     end
     return result
