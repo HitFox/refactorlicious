@@ -5,7 +5,7 @@
     %ul{class: "exercises"}
       - exercise_category.exercises.each_with_index do |exercise, i|
         %li
-          .exercise{class: [difficulty_level(exercise), exercise.status]}
+          .exercise{class: [exercise.difficulty_level, exercise.status]}
             = link_to alphabet[i], exercise_path(exercise)
             .points
               = "#{exercise.points} points"

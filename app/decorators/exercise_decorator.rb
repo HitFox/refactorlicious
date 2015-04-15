@@ -8,4 +8,15 @@ class ExerciseDecorator < Draper::Decorator
     end
     return status
   end
+
+  def difficulty_level
+    if points >= 25
+      "difficult"
+    elsif points >= 15
+      "medium"
+    else
+      "easy"
+    end
+  end
+  
 end
