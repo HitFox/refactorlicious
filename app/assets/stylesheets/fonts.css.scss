@@ -4,3 +4,50 @@ body, button, input[type="submit"] {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
 }
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: "refactorlicious";
+  src:url("refactorlicious.eot");
+  src:url("refactorlicious.eot?#iefix") format("embedded-opentype"),
+    url("refactorlicious.woff") format("woff"),
+    url("refactorlicious.ttf") format("truetype"),
+    url("refactorlicious.svg#refactorlicious") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "refactorlicious" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="is-"]:before,
+[class*=" is-"]:before {
+  font-family: "refactorlicious" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.is-finished:before {
+  content: "\e000";
+}
+.is-incomplete:before {
+  content: "\e001";
+}
