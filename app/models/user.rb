@@ -13,16 +13,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def exercise_status_hash
-    @exercise_status_hash ||= generate_exercise_status_hash
-  end
-
-  private
-  def generate_exercise_status_hash
-    result = Hash.new
-    user_exercises.each do |exercise_status|
-      result[exercise_status.exercise_id] = exercise_status.status
-    end
-    return result
+  def user_exercises_hash
+    @user_exercises_hash ||= Hash[user_exercises.map { |a| [a.exercise_id, a.status]}]
   end
 end
