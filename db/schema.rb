@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415095840) do
+ActiveRecord::Schema.define(version: 20150416104358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20150415095840) do
     t.string   "example"
   end
 
-  create_table "exercise_statuses", force: :cascade do |t|
-    t.integer  "exercise_id"
-    t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "status",      default: 0
-  end
-
   create_table "exercises", force: :cascade do |t|
     t.integer  "points"
     t.string   "solution"
@@ -39,6 +31,14 @@ ActiveRecord::Schema.define(version: 20150415095840) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "exercise_category_id"
+  end
+
+  create_table "user_exercises", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
   end
 
   create_table "users", force: :cascade do |t|

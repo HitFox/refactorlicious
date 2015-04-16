@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :rememberable, :trackable
-  has_many :exercise_statuses
-  has_many :exercises, through: :exercise_statuses
+  has_many :user_exercises
+  has_many :exercises, through: :user_exercises
   validates_presence_of :first_name, :last_name, :email
 
   def self.from_omniauth(auth)
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   private
   def generate_exercise_status_hash
     result = Hash.new
-    exercise_statuses.each do |exercise_status|
+    user_exercises.each do |exercise_status|
       result[exercise_status.exercise_id] = exercise_status.status
     end
     return result
