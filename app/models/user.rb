@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :omniauthable, :rememberable, :trackable
-  has_many :exercise_statuses
-  has_many :exercises, through: :exercise_statuses
+  has_many :user_exercises
+  has_many :exercises, through: :user_exercises
   validates_presence_of :first_name, :last_name, :email
 
   def self.from_omniauth(auth)
@@ -13,17 +13,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def exercise_status_hash
-    @exercise_status_hash ||= generate_exercise_status_hash
-  end
-
-  private
-  def generate_exercise_status_hash
-    result = Hash.new
-    exercise_statuses.each do |exercise_status|
-      status = exercise_status.finished ? "is-finished" : "is-incomplete"
-      result[exercise_status.exercise_id] = status
-    end
-    return result
+  def user_exercises_hash
+    @user_exercises_hash ||= Hash[user_exercises.map { |a| [a.exercise_id, a.status]}]
   end
 end
