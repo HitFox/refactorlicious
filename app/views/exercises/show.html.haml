@@ -14,10 +14,11 @@
     .code-challenge{id: "code-challenge"}
       %h3 Please refactor the following code:
       %pre.code-highlight= highlight(@exercise.code_to_refactor)
-.editor
+.editor{data: {storage_id: "exercise_#{@exercise.id}"}}
   .welcome
-    %p Please enter your code in the editor below!
-  #wrapper
+    %p Please refactor the code in the editor below!
+  #wrapper<
+    %pre= @exercise.code_to_refactor
   %footer
     .help Hint
     .prev= link_to "Prev", exercise_path(prev_exercise)
@@ -25,3 +26,5 @@
     .solution
       %h2 Solution
       %pre.code-highlight= highlight(@exercise.solution)
+:javascript
+  var editor = ace.edit('wrapper');

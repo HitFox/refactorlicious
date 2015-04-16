@@ -7,6 +7,6 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = Exercise.find_by(id: params[:id])
+    @exercise = Exercise.find(params[:id])
   end
 end
