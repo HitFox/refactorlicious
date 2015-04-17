@@ -18,4 +18,8 @@ $(document).on('page:change', function(){
         localStorage.setItem(localStorageID, editor.getValue());
       });
     }
+
+    $(".submit").click( function() {
+      alert("you clicked submit!");
+    });
 });

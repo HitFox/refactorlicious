@@ -20,9 +20,10 @@
   #wrapper<
     %pre= @exercise.code_to_refactor
   %footer
-    .help Hint
+    .hint Hint
     .prev= link_to "Prev", exercise_path(prev_exercise)
     .next= link_to "Next", exercise_path(next_exercise)
+    .submit= link_to "Submit", exercise_path(next_exercise)
     .solution
       %h2 Solution
       %pre.code-highlight= highlight(@exercise.solution)
