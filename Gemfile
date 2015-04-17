@@ -44,12 +44,17 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry'
+  gem 'dotenv-rails'
+  gem 'launchy', require: false
+end
+
+group :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.0'
-  gem "factory_girl_rails", "~> 4.0"
-  gem 'pry'
-  gem 'capybara'
-  gem 'dotenv-rails'
   gem 'faker'
-  gem 'launchy', require: false
+  gem 'capybara'
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
