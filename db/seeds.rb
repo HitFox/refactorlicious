@@ -8,9 +8,9 @@
 
 ExerciseCategory.find_or_create_by(name: "Extract Method").tap do |ec|
   ec.description = <<TEXT
-Extract Method is one of the most common refactorings.
+  Extract Method is one of the most common refactorings.
 
-It's preferred to have short, well-named methods for several reasons.
+    It's preferred to have short, well-named methods for several reasons.
 
 First, it increases the chances that other methods can use a method when the method is finely grained. Second, it allows the higher-level methods to read more like a series of comments.
 
@@ -107,181 +107,41 @@ end
 Exercise.create.tap do |e|
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Introduce Explaining Variable").id
-  e.code_to_refactor = <<CODE
-def price
-  # price is base price - quantity discount + shipping
-  return @quantity * @item_price -
-  [0, @quantity - 500].max * @item_price * 0.05 +
-  [@quantity * @item_price * 0.1, 100.0].min
-end
-CODE
-  e.solution = <<CODE
-def price
-  base_price = @quantity * @item_price
-  quantity_discount = [0, @quantity - 500].max * @item_price * 0.05
-  shipping = [base_price * 0.1, 100.0].min
-  return base_price - quantity_discount + shipping
-end
-CODE
+  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.code_to_refactor = <<CODE
-def get_rating
-  more_than_five_late_deliveries ? 2 : 1
-end
-
-def more_than_five_late_deliveries
-  @number_of_late_deliveries > 5
-end
-CODE
-  e.solution = <<CODE
-def get_rating
-  @number_of_late_deliveries > 5 ? 2 : 1
-end
-CODE
+  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.code_to_refactor = <<CODE
-def get_score
-  more_than_ten_votes ? base_score * 1.05 : base_score
-end
-
-def more_than_ten_votes
-  @votes > 10
-end
-CODE
-  e.solution = <<CODE
-def get_score
-  @votes > 10 ? base_score * 1.05 : base_score
-end
-CODE
+  e.name = 'B'
   e.save
 end
 
 Exercise.create.tap do |e|
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.code_to_refactor = <<CODE
-def get_chocolate_eggs
-  older_than_10 ? 1 : 2
-end
-
-def older_than_10
-  self.age > 10
-end
-CODE
-  e.solution = <<CODE
-def get_chocolate_eggs
-  self.age > 10 ? 1 : 2
-end
-CODE
+  e.name = 'C'
   e.save
 end
 
 Exercise.create.tap do |e|
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
-  e.code_to_refactor = <<'CODE'
-def print_owing
-  outstanding = 0.0
-
-  # print banner
-  puts "*************************"
-  puts "***** Customer Owes *****"
-  puts "*************************"
-
-  # calculate outstanding
-  @orders.each do |order|
-  outstanding += order.amount
-  end
-
-  # print details
-  puts "name: #{@name}"
-  puts "amount: #{outstanding}"
-end
-CODE
-  e.solution = <<'CODE'
-def print_owing
-  outstanding = 0.0
-
-  print_banner
-
-  # calculate outstanding
-  @orders.each do |order|
-  outstanding += order.amount
-  end
-
-  # print details
-  puts "name: #{@name}"
-  puts "amount: #{outstanding}"
-end
-
-def print_banner
-  # print banner
-  puts "*************************"
-  puts "***** Customer Owes *****"
-  puts "*************************"
-end
-CODE
+  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
   e.points = 25
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
-  e.code_to_refactor = <<'CODE'
-def print_owing
-  outstanding = 0.0
-
-  print_banner
-
-  # calculate outstanding
-  @orders.each do |order|
-  outstanding += order.amount
-  end
-
-  # print details
-  puts "name: #{@name}"
-  puts "amount: #{outstanding}"
-end
-
-def print_banner
-  # print banner
-  puts "*************************"
-  puts "***** Customer Owes *****"
-  puts "*************************"
-end
-CODE
-  e.solution = <<'CODE'
-def print_owing
-  print_banner
-  outstanding = calculate_outstanding
-  print_details outstanding
-end
-
-def print_banner
-  # print banner
-  puts "*************************"
-  puts "***** Customer Owes *****"
-  puts "*************************"
-end
-
-def calculate_outstanding
-  @orders.inject(0.0) { |result, order| result + order.amount }
-end
-
-def print_details(outstanding)
-  puts "name: #{@name}"
-  puts "amount: #{outstanding}"
-end
-CODE
+  e.name = 'B'
   e.save
 end
