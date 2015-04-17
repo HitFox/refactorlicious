@@ -1,5 +1,5 @@
 $(document).on('page:change', function(){
-  var editor = ace.edit("wrapper");
+  window.editor = ace.edit("wrapper");
   var localStorageID = $('.editor').attr('data-storage-id')
   editor.setTheme("ace/theme/monokai");
   editor.getSession().setTabSize(2);
