@@ -7,6 +7,6 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = Exercise.find(params[:id])
+    @exercise = Exercise.find(params[:id]).decorate
   end
 end
