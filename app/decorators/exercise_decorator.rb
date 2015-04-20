@@ -28,7 +28,7 @@ class ExerciseDecorator < Draper::Decorator
 
   def file_content
     @base_path ||= "#{EXERCISES_PATH}#{object.exercise_category.name.downcase.gsub(' ', '_')}_#{object.id}.rb"
-    @file_content = File.open(@base_path).read
+    @file_content ||= File.open(@base_path).read
   end
 
 end
