@@ -105,43 +105,43 @@ EXAMPLE
 end
 
 Exercise.create.tap do |e|
+  e.id = 1
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Introduce Explaining Variable").id
-  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
+  e.id = 2
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
+  e.id = 3
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.name = 'B'
   e.save
 end
 
 Exercise.create.tap do |e|
+  e.id = 4
   e.points = 10
   e.exercise_category_id = ExerciseCategory.find_by_name("Inline Method").id
-  e.name = 'C'
   e.save
 end
 
 Exercise.create.tap do |e|
+  e.id = 5
   e.points = 15
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
-  e.name = 'A'
   e.save
 end
 
 Exercise.create.tap do |e|
+  e.id = 6
   e.points = 25
   e.exercise_category_id = ExerciseCategory.find_by_name("Extract Method").id
-  e.name = 'B'
   e.save
 end

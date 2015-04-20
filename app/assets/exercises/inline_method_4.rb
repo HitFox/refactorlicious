@@ -5,3 +5,8 @@ end
 def older_than_10
   self.age > 10
 end
+
+#SOLUTION
+def get_chocolate_eggs
+  self.age > 10 ? 1 : 2
+end

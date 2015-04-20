@@ -18,23 +18,17 @@ class ExerciseDecorator < Draper::Decorator
   end
 
   def code_to_refactor
-    File.open(code_to_refactor_path).read
+    file_content.split("#SOLUTION")[0].strip
   end
 
   def solution
-    File.open(solution_path).read
+    file_content.split("#SOLUTION")[1].strip
   end
   private
 
-  def base_path
-    @base_path ||= "#{EXERCISES_PATH}#{object.exercise_category.name.downcase.gsub(' ', '_')}/#{object.name}"
+  def file_content
+    @base_path ||= "#{EXERCISES_PATH}#{object.exercise_category.name.downcase.gsub(' ', '_')}_#{object.id}.rb"
+    @file_content = File.open(@base_path).read
   end
 
-  def code_to_refactor_path
-    "#{base_path}.rb"
-  end
-
-  def solution_path
-    "#{base_path}_sol.rb"
-  end
 end
