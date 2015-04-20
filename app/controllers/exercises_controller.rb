@@ -8,5 +8,6 @@ class ExercisesController < ApplicationController
 
   def show
     @exercise = Exercise.find(params[:id])
+    UserExercise.find_or_create_by(user_id: current_user.id, exercise_id: @exercise.id)
   end
 end
