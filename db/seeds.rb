@@ -8,9 +8,9 @@
 
 ExerciseCategory.find_or_create_by(name: "Extract Method").tap do |ec|
   ec.description = <<TEXT
-  Extract Method is one of the most common refactorings.
+Extract Method is one of the most common refactorings.
 
-    It's preferred to have short, well-named methods for several reasons.
+It's preferred to have short, well-named methods for several reasons.
 
 First, it increases the chances that other methods can use a method when the method is finely grained. Second, it allows the higher-level methods to read more like a series of comments.
 

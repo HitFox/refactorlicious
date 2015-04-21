@@ -1,3 +1,4 @@
+- view_name = "#{@exercise.exercise_category.name.downcase.gsub(' ', '_')}_#{@exercise.id}"
 .instructions
   .navigation
     %ul
@@ -13,15 +14,16 @@
       %pre.code-highlight= highlight(@exercise.exercise_category.example)
     .code-challenge{id: "code-challenge"}
       %h3 Please refactor the following code:
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor{data: {storage_id: "exercise_#{@exercise.id}"}}
   .welcome
     %p Please refactor the code in the editor below!
   #wrapper<
-    %pre= @exercise.code_to_refactor
+    %pre= render "shared/code/#{view_name}"
   %footer
     .help Hint
     .prev= link_to "Prev", exercise_path(prev_exercise)
     .next= link_to "Next", exercise_path(next_exercise)
     .solution
       %h2 Solution
-      %pre.code-highlight= highlight(@exercise.solution)
+      %pre.code-highlight= highlight(render "shared/solution/#{view_name}")
