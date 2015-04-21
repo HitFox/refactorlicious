@@ -3,7 +3,7 @@ class ExerciseDecorator < Draper::Decorator
 
   def status
     status = h.current_user.user_exercises_hash[object.id]
-    status.present? ? status : status = "not started"
+    status.present? ? status : status = "not-started"
   end
 
   def difficulty_level
@@ -15,5 +15,12 @@ class ExerciseDecorator < Draper::Decorator
       "easy"
     end
   end
-  
+
+  def icon
+    case status
+    when "finished" then "icon-star-two"
+    when "incomplete" then "icon-star-half"
+    when "not-started" then "icon-star"
+    end
+  end
 end

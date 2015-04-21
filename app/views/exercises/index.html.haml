@@ -5,7 +5,10 @@
     %ul{class: "exercises"}
       - exercise_category.exercises.each_with_index do |exercise, i|
         %li
-          .exercise{class: [exercise.difficulty_level, "is-#{exercise.status}"]}
+          .exercise{class: exercise.difficulty_level}
             = link_to alphabet[i], exercise_path(exercise)
             .points
               = "#{exercise.points} points"
+            .exercise-icon
+              %svg{class: "#{exercise.icon}"}
+                %use{"xlink:href": asset_path("icons.svg##{exercise.icon}")}
