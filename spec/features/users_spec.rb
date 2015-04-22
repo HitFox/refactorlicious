@@ -13,7 +13,7 @@ describe "A user navigating the site" do
       visit "/exercises"
       click_on "A"
       click_on "Exercises"
-      expect(page).to have_css(".is-incomplete")
+      expect(page).to have_css(".icon-star-half")
     end
   end
 end
