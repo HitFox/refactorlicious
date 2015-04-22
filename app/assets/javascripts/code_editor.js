@@ -51,7 +51,8 @@ $(document).on('page:change', function(){
     // }
   });
 
-  $(".next").click( function() {
+  $(".close").click( function() {
     $(".success").hide();
+    $(".fail").hide();
   })
 });
