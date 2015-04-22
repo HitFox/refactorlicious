@@ -49,12 +49,20 @@
     height: 100%;
   }
 
+  .exercise-icon {
+    [class^="icon-"], [class*=" icon-"] {
+      height: 1.4em;
+      width: 1.4em;
+      position: absolute;
+      right: .3em;
+      top: .3em;
+      fill: $black;
+      opacity: .1;
+    }
 
-  &.is-finished:before, &.is-incomplete:before {
-    position: absolute;
-    right: .2em;
-    top: .2em;
-    font-size: 1.4em;
+    .icon-star-half, .icon-star-two {
+      opacity: 1;
+    }
   }
 }
 
