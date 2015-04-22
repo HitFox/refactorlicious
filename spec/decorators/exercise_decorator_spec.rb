@@ -19,4 +19,29 @@ describe ExerciseDecorator do
       expect(difficult_exercise.difficulty_level).to eq "difficult"
     end
   end
+
+  describe "#icon_class" do
+    let(:exercise) { ExerciseDecorator.new(build_stubbed(:exercise)) }
+
+    context "Exercise not started" do
+      it "returns the right class" do
+        allow(exercise).to receive(:status) { "not-started" }
+        expect(exercise.icon_class).to eq "icon-star"
+      end
+    end
+
+    context "Exercise started" do
+      it "returns the right class" do
+        allow(exercise).to receive(:status) { "incomplete" }
+        expect(exercise.icon_class).to eq "icon-star-half"
+      end
+    end
+
+    context "Exercise finished" do
+      it "returns the right class" do
+        allow(exercise).to receive(:status) { "finished" }
+        expect(exercise.icon_class).to eq "icon-star-two"
+      end
+    end
+  end
 end
