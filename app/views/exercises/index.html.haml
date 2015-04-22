@@ -10,5 +10,4 @@
             .points
               = "#{exercise.points} points"
             .exercise-icon
-              %svg{class: "#{exercise.icon}"}
-                %use{"xlink:href": asset_path("icons.svg##{exercise.icon}")}
+              = svg_icon(exercise.icon_class, asset_path("icons.svg##{exercise.icon_class}"))

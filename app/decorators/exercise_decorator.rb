@@ -16,7 +16,7 @@ class ExerciseDecorator < Draper::Decorator
     end
   end
 
-  def icon
+  def icon_class
     case status
     when "finished" then "icon-star-two"
     when "incomplete" then "icon-star-half"

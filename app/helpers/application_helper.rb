@@ -14,4 +14,8 @@ module ApplicationHelper
       :css => :style
     ).html_safe
   end
+
+  def svg_icon(icon_class, icon_path)
+    raw "<svg class=\"#{icon_class}\"><use xlink:href=#{icon_path}></use></svg>"
+  end
 end
