@@ -15,13 +15,5 @@ class ExerciseDecorator < Draper::Decorator
       "easy"
     end
   end
-
-  def expected_words
-    result = {
-      "def": object.solution.scan("def").size,
-      "end": object.solution.scan("end").size,
-      "each": object.solution.scan("each").size
-    }
-  end
-
+  
 end

@@ -9,11 +9,11 @@ describe "A user navigating the site" do
       login_as(user)
     end
 
-    xit "can start an exercise" do
+    it "can start an exercise" do
       visit "/exercises"
       click_on "A"
       click_on "Exercises"
-      expect(page).to have_css("started")
+      expect(page).to have_css(".is-incomplete")
     end
   end
 end

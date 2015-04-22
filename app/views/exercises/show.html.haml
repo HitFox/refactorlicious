@@ -13,7 +13,7 @@
       %pre.code-highlight= highlight(@exercise.exercise_category.example)
     .code-challenge{id: "code-challenge"}
       %h3 Please refactor the following code:
-
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor{data: {storage_id: "exercise_#{@exercise.id}"}}
   .welcome
     %p Please refactor the code in the editor below!
@@ -22,7 +22,7 @@
   %footer
     .hint Hint
     .prev= link_to "Prev", exercise_path(prev_exercise)
-    .submit= link_to "Submit", "#",  data: {next_exercise: next_exercise.id, expected_words: @exercise.expected_words}
+    .submit= link_to "Submit", "#",  data: {next_exercise: next_exercise.id}
     .success
       %p Nice refactoring!
       .next= link_to "Go to next exercise", exercise_path(next_exercise)
