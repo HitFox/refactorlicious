@@ -22,8 +22,10 @@
   %footer
     .hint Hint
     .prev= link_to "Prev", exercise_path(prev_exercise)
-    .next= link_to "Next", exercise_path(next_exercise)
     .submit= link_to "Submit", "#",  data: {next_exercise: next_exercise.id, expected_words: @exercise.expected_words}
+    .success
+      %p Nice refactoring!
+      .next= link_to "Go to next exercise", exercise_path(next_exercise)
     .solution
       %h2 Solution
       %pre.code-highlight= highlight(@exercise.solution)

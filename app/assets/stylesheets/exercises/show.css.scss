@@ -62,6 +62,35 @@
   position: fixed;
   left: calc(33%);
 
+  .success {
+    position: absolute;
+    top: 0em;
+    color: $white;
+    background-color: $turquoise;
+    width: 100%;
+    border: 0.2em solid $white;
+    height: 4.6em;
+    display: none;
+
+    p {
+      font-size: 1.5em;
+      padding-left: 1em;
+      padding-top:0.7em;
+    }
+
+    .next {
+      position:absolute;
+      top: .85em;
+      left: 16em;
+      color: $white;
+      background-color: $red;
+      padding: .65em 1em;
+      a {
+        color: $white;
+      }
+    }
+  }
+
   .welcome {
     font-size: 1.5em;
     height: 2.6em;
@@ -80,6 +109,7 @@
     top: 4.04em;
   }
 
+
   footer {
     z-index: 10;
     background-color: $white;
@@ -89,7 +119,7 @@
     top: calc(100vh - 4.6em);
     @include transition(top .5s ease);
 
-    .hint, .next, .prev, .submit {
+    .hint, .prev, .submit {
       display: inline-block;
       margin: 1em;
       padding: .65em 1em;
@@ -107,7 +137,7 @@
       margin-left: 1.5em;
     }
 
-    .next, .prev, .submit {
+    .prev, .submit {
       background-color: $green;
       position: absolute;
       right: 0;
