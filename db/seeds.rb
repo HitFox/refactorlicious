@@ -123,6 +123,7 @@ def price
   return base_price - quantity_discount + shipping
 end
 CODE
+  e.key_words = 'def,end'
   e.save
 end
 
@@ -143,6 +144,7 @@ def get_rating
   @number_of_late_deliveries > 5 ? 2 : 1
 end
 CODE
+  e.key_words = 'def,get_rating,end'
   e.save
 end
 
@@ -163,6 +165,7 @@ def get_score
   @votes > 10 ? base_score * 1.05 : base_score
 end
 CODE
+  e.key_words = 'def,get_score,end'
   e.save
 end
 
@@ -183,6 +186,7 @@ def get_chocolate_eggs
   self.age > 10 ? 1 : 2
 end
 CODE
+  e.key_words = 'def,get_chocolate_eggs,end'
   e.save
 end
 
@@ -231,6 +235,7 @@ def print_banner
   puts "*************************"
 end
 CODE
+  e.key_words = 'def, def'
   e.save
 end
 
@@ -283,5 +288,6 @@ def print_details(outstanding)
   puts "amount: #{outstanding}"
 end
 CODE
+  e.key_words = 'def,end,def,end,def,end,inject'
   e.save
 end

@@ -22,12 +22,14 @@
   %footer
     .hint Hint
     .submit= link_to "Submit", "#",  data: {next_exercise: next_exercise.id}
-    .success
-      %p Nice refactoring!
-      .next= link_to "Go to next exercise", exercise_path(next_exercise)
-    / .fail
-    /   %p Ups... review your code, something is wrong
-    %p{class: "close"} x
+    #message
+      #success
+        %p Nice refactoring!
+        #next= link_to "Go to next exercise", exercise_path(next_exercise)
+      #fail
+        %p Ups... review your code, something is wrong
+      %p{id: "close"} x
     .solution
       %h2 Solution
       %pre.code-highlight= highlight(@exercise.solution)
+    #key_words= @exercise.keywords_hash.to_json

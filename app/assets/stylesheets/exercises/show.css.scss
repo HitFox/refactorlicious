@@ -62,7 +62,8 @@
   position: fixed;
   left: calc(33%);
 
-  .success, .fail {
+  #success, #fail {
+    display: none;
     position: absolute;
     top:0;
     height: 4.6em;
@@ -73,14 +74,13 @@
     color: $white;
   }
 
-  .success {
+  #success {
     background-color: $turquoise;
-
-    .next, p {
+    #next, p {
       display: inline-block;
     }
 
-    .next {
+    #next {
       margin-left: 3em;
       a {
         background-color: $red;
@@ -94,21 +94,26 @@
     }
   }
 
-  .fail {
+  #fail {
     background-color: $red;
     padding-top: 1.3em;
   }
 
-  .close {
+  #close {
     cursor: default;
     position:absolute;
     right: 1em;
     top: 1em;
     color: $white;
     line-height: 0em;
+     &:hover {
+        color:black;
+    }
   }
 
-
+  #message, #key_words {
+    display: none;
+  }
 
   .welcome {
     font-size: 1.5em;
