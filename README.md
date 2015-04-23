@@ -2,7 +2,7 @@
 
 This application helps users practice common methods to refactor ruby code.
 
-![Homepage](http://i.imgur.com/3jDwCmX.png)
+![Homepage](http://i.imgur.com/h1kcfI4.jpg)
 
 ##How to get it running locally:
 
@@ -14,4 +14,4 @@ This application helps users practice common methods to refactor ruby code.
 
 4. Run `rake user:add_exercises` to connect your account to some of the seed data.
 
-5. Start developing.
+5. Run `zeus start` to get started with development.

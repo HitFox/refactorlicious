@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20150423082115) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "points"
-    t.string   "solution"
-    t.string   "code_to_refactor"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "exercise_category_id"

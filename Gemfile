@@ -38,7 +38,6 @@ gem 'haml-rails'
 gem 'redcarpet'
 gem 'coderay', '~> 1.1.0'
 gem 'draper', '~> 1.3'
-gem 'shoulda-matchers', group: :test
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -46,15 +45,20 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'dotenv-rails'
-  gem 'launchy', require: false
+end
+
+group :development do
+  gem 'zeus'
 end
 
 group :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
   gem 'faker'
   gem 'capybara'
   gem "factory_girl_rails", "~> 4.0"
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'launchy', require: false
 end
