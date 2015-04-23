@@ -16,4 +16,8 @@ module ExercisesHelper
       @exercise
     end
   end
+
+  def name_of_partial
+    view_name ||= "#{@exercise.exercise_category.name.downcase.gsub(' ', '_')}_#{@exercise.id}"
+  end
 end
