@@ -45,7 +45,7 @@ $(document).on('page:change', function(){
     }
     else {
        $("#success").show();
-       $.ajax({ url: "/exercises/1", method: "PATCH" });
+       $.ajax({ url: window.location.href, method: "PATCH" });
     }
   });
 

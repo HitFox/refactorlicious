@@ -6,7 +6,8 @@ FactoryGirl.define do
 
   factory :inline_method_exercise, parent: :exercise do
     id 2
-    points [10, 15, 25].sample
+    points 10
+    key_words "def, end"
     association :exercise_category, strategy: :build
   end
 end
