@@ -30,7 +30,7 @@ $(document).on('page:change', function(){
 
   // Extend the footer
   var $footer = $('footer');
-  var $helpButton = $('.help');
+  var $helpButton = $('.hint');
 
   $helpButton.on('click', function(){
     $footer.toggleClass('is-extended');

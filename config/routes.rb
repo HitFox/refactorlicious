@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :exercises, only: [:show, :index, :create, :new]
+  resources :exercises, only: [:show, :index, :create, :new] do
+      patch :mark_as_finished
+  end
 
   resource :session, only: :destroy do
     get :error

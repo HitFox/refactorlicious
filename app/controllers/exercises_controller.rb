@@ -25,9 +25,16 @@ class ExercisesController < ApplicationController
     end
   end
 
+  def mark_as_finished
+    user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:exercise_id])
+    user_exercise.update_attribute(:status, "finished")
+    render nothing: true
+  end
+
   private
 
   def exercise_params
     params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution)
   end
+
 end

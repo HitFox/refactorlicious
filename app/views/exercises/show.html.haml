@@ -1,28 +1,35 @@
 .instructions
   .navigation
     %ul
-      %li{class: "active"}
+      %li.active
         %a{href: "#introduction"} INTRODUCTION
       %li
         %a{href: "#code-challenge"} CODE CHALLENGE
   .tabs
-    .introduction{id: "introduction"}
+    .introduction#introduction
       %h3= @exercise.exercise_category.name
       %p= markdown(@exercise.exercise_category.description)
       %h3 Example
       %pre.code-highlight= highlight(@exercise.exercise_category.example)
-    .code-challenge{id: "code-challenge"}
+    .code-challenge#code-challenge
       %h3 Please refactor the following code:
-      %pre.code-highlight= highlight(render "shared/code/#{name_of_partial}")
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor{data: {storage_id: "exercise_#{@exercise.id}"}}
   .welcome
     %p Please refactor the code in the editor below!
   #wrapper<
-    %pre= render "shared/code/#{name_of_partial}"
+    %pre= @exercise.code_to_refactor
   %footer
-    .help Hint
-    .prev= link_to "Prev", exercise_path(prev_exercise)
-    .next= link_to "Next", exercise_path(next_exercise)
+    .hint Hint
+    .submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
+    #message
+      #success
+        %p Nice refactoring!
+        #next= link_to "Go to next exercise", exercise_path(next_exercise)
+      #fail
+        %p Oops... review your code, something is wrong
+      %p#close x
     .solution
       %h2 Solution
-      %pre.code-highlight= highlight(render "shared/solution/#{name_of_partial}")
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
+    #key_words= @exercise.keywords_hash.to_json

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ExercisesController do
   let!(:user) {create(:user)}
-  let!(:exercise) {create(:inline_method_exercise)}
+  let!(:exercise) {create(:exercise)}
   before :each do
     login_user (user)
   end
