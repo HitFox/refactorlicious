@@ -3,8 +3,8 @@ class CreateExercises < ActiveRecord::Migration
     create_table :exercises do |t|
       t.string :name
       t.integer :points
-      t.string :solution
-      t.string :code_to_refactor
+      t.string :solution, null: false
+      t.string :code_to_refactor, null: false
 
       t.timestamps null: false
     end
