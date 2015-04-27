@@ -13,7 +13,7 @@ describe ExercisesController do
     end
 
     it "changes exercise status to finished" do
-      patch :update, id: exercise.id
+      patch :mark_as_finished, exercise_id: exercise.id
       user_exercise = UserExercise.find_by(user_id: user.id, exercise_id: exercise.id)
       expect(user_exercise.status).to eq ("finished")
     end

@@ -11,8 +11,8 @@ class ExercisesController < ApplicationController
     UserExercise.find_or_create_by(user_id: current_user.id, exercise_id: @exercise.id)
   end
 
-  def update
-    user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:id])
+  def mark_as_finished
+    user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:exercise_id])
     user_exercise.update_attribute(:status, "finished")
     render nothing: true
   end

@@ -68,9 +68,8 @@
     top:0;
     height: 4.6em;
     width: 100%;
-    border: 0.2em solid $white;
-    padding-left: 1.5em;
-    padding-top:1em;
+    border: .2em solid $white;
+    padding: 1em 0 0 1.5em;
     color: $white;
   }
 
@@ -105,10 +104,10 @@
     right: 1em;
     top: 1em;
     color: $white;
-    line-height: 0em;
-     &:hover {
-        color:black;
-    }
+    line-height: 0;
+      &:hover {
+        color: black;
+      }
   }
 
   #message, #key_words {
@@ -151,7 +150,7 @@
 
       &:hover {
         cursor: pointer;
-        opacity: 0.8;
+        opacity: .8;
       }
     }
 
@@ -164,7 +163,7 @@
     .submit {
       background-color: $green;
       position: absolute;
-      right: 0.5em;
+      right: .5em;
       a {
         color: $white;
       }

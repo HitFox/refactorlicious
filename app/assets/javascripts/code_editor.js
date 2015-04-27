@@ -29,7 +29,7 @@ $(document).on('page:change', function(){
       for (var word in expected_words) {
         var reg_exp = new RegExp(word , 'g')
         var count = (answer.match(reg_exp) || []).length;
-        if (expected_words[word] != count) {
+        if (expected_words[word] !== count) {
           is_valid_answer = false;
         }
       }
@@ -45,13 +45,13 @@ $(document).on('page:change', function(){
     }
     else {
        $("#success").show();
-       $.ajax({ url: window.location.href, method: "PATCH" });
+       $.ajax({
+        url: window.location.href + "/mark_as_finished",
+        method: "PATCH" });
     }
   });
 
   $("#close").click( function() {
-    $("#fail").hide();
-    $("#success").hide();
-    $("#message").hide();
+    $("#fail, #success, #message").hide();
   })
 });
