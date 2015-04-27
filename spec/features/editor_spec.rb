@@ -5,7 +5,7 @@ describe "The exercise editor" do
 
   before do
     login_as(create(:user))
-    visit "/exercises/#{exercise.id}"
+    visit "/exercises/#{exercise.to_param}"
   end
 
   it "loads the current code to refactor", js: true do
