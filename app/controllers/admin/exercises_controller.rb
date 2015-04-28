@@ -1,15 +1,28 @@
 class Admin::ExercisesController < Admin::AdminControllerBase
+  before_action :set_exercise, only: [:update, :edit]
+
   def index
     @exercise_categories = ExerciseCategory.all
   end
 
   def update
-    @exercies = Exercise.new(exercise_params)
+    if @exercise.update(exercise_params)
+      redirect_to admin_exercises_path, notice: "Exercise was successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  def edit
   end
 
   private
 
   def exercise_params
-    params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution)
+    params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution, :status)
+  end
+
+  def set_exercise
+    @exercise = Exercise.find(params[:id])
   end
 end

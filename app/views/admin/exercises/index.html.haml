@@ -6,8 +6,8 @@
         %ul{class: "exercises"}
           - exercise_category.drafted_exercises.each_with_index do |exercise, i|
             %li
-              .exercise
-                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+              .exercise.is-drafted
+                = link_to "Exercise #{i + 1}", edit_admin_exercise_path(exercise)
                 .points
                   = "#{exercise.points} points"
   .approved-exercises
@@ -17,8 +17,8 @@
         %ul{class: "exercises"}
           - exercise_category.approved_exercises.each_with_index do |exercise, i|
             %li
-              .exercise
-                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+              .exercise.is-approved
+                = link_to "Exercise #{i + 1}", edit_admin_exercise_path(exercise)
                 .points
                   = "#{exercise.points} points"
   .rejected-exercises
@@ -28,7 +28,7 @@
         %ul{class: "exercises"}
           - exercise_category.rejected_exercises.each_with_index do |exercise, i|
             %li
-              .exercise
-                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+              .exercise.is-rejected
+                = link_to "Exercise #{i + 1}", edit_admin_exercise_path(exercise)
                 .points
                   = "#{exercise.points} points"

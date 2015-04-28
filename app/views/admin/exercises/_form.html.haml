@@ -1,0 +1,13 @@
+%p Hey there buddy, thanks for wanting to contribute to our exponentionally growing platform.
+= form_for @exercise, url: admin_exercise_path(@exercise) do |f|
+  = f.label :exercise_category
+  = f.collection_select(:exercise_category_id, ExerciseCategory.all, :id, :name)
+  = f.label :points
+  = f.select(:points, [10, 15, 25], selected: @exercise.points)
+  = f.label :code_to_refactor
+  = f.text_field :code_to_refactor
+  = f.label :solution
+  = f.text_field :solution
+  = f.label :status
+  = f.select(:status, Exercise.statuses.keys, selected: @exercise.status)
+  = f.submit "Submit"
