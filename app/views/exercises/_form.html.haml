@@ -1,5 +1,5 @@
 %p Hey there buddy, thanks for wanting to contribute to our exponentionally growing platform.
-= form_for @exercise do |f|
+= form_for exercise do |f|
   = f.label :exercise_category
   = f.collection_select(:exercise_category_id, ExerciseCategory.all, :id, :name)
   = f.label :points

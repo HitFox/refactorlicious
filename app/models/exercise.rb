@@ -6,6 +6,8 @@ class Exercise < ActiveRecord::Base
 
   enum status: { drafted: 0 , approved: 1, rejected: 2 }
 
+  delegate :name, :description, :example, to: :exercise_category, allow_nil: true, prefix: true
+
   def keywords_hash
     words = key_words.split(',')
     words.inject(Hash.new(0)) { |h, w| h[w.strip]+=1 ; h}

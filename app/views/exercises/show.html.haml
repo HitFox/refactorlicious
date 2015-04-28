@@ -7,10 +7,10 @@
         %a{href: "#code-challenge"} CODE CHALLENGE
   .tabs
     .introduction#introduction
-      %h3= @exercise.exercise_category.name
-      %p= markdown(@exercise.exercise_category.description)
+      %h3= @exercise.exercise_category_name
+      %p= markdown(@exercise.exercise_category_description)
       %h3 Example
-      %pre.code-highlight= highlight(@exercise.exercise_category.example)
+      %pre.code-highlight= highlight(@exercise.exercise_category_example)
     .code-challenge#code-challenge
       %h3 Please refactor the following code:
       %pre.code-highlight= highlight(@exercise.code_to_refactor)
