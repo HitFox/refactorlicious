@@ -124,6 +124,7 @@ def price
 end
 CODE
   e.key_words = 'def,end'
+  e.status = "approved"
   e.save
 end
 
@@ -145,6 +146,7 @@ def get_rating
 end
 CODE
   e.key_words = 'def,get_rating,end'
+  e.status = "approved"
   e.save
 end
 
@@ -166,6 +168,7 @@ def get_score
 end
 CODE
   e.key_words = 'def,get_score,end'
+  e.status = "approved"
   e.save
 
 end
@@ -188,6 +191,7 @@ def get_chocolate_eggs
 end
 CODE
   e.key_words = 'def,get_chocolate_eggs,end'
+  e.status = "approved"
   e.save
 end
 
@@ -237,6 +241,7 @@ def print_banner
 end
 CODE
   e.key_words = 'def, def'
+  e.status = "approved"
   e.save
 end
 
@@ -290,5 +295,6 @@ def print_details(outstanding)
 end
 CODE
   e.key_words = 'def,end,def,end,def,end,inject'
+  e.status = "approved"
   e.save
 end
