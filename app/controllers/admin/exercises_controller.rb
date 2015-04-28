@@ -9,6 +9,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
     if @exercise.update(exercise_params)
       redirect_to admin_exercises_path, notice: "Exercise was successfully updated"
     else
+      flash[:alert] = "Could not save exercise!"
       render :edit
     end
   end

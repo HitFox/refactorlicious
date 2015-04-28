@@ -7,7 +7,7 @@ module Admin
 
     def redirect_unless_admin
       unless current_user.admin?
-        redirect_to exercises_path 
+        redirect_to exercises_path
       end
     end
   end
