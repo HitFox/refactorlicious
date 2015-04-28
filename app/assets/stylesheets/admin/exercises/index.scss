@@ -1,0 +1,18 @@
+.is-rejected {
+  color: $red;
+}
+
+.is-approved {
+  color: $green;
+}
+
+.is-drafted {
+  color: $grey;
+}
+
+.drafted-exercises, .approved-exercises, .rejected-exercises {
+  li a {
+    font-size: 1.5em;
+    line-height: 4em;
+  }
+}

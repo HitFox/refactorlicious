@@ -19,7 +19,8 @@
         - if user_signed_in?
           .menu-item= link_to "Exercises", exercises_path
           .menu-item= link_to "Contribute", new_exercise_path
-          .menu-item= link_to "Admin", admin_exercises_path if current_user.admin?
+          - if current_user.admin?
+            .menu-item= link_to "Admin", admin_exercises_path
           .menu-item= link_to "Logout", session_path, method: :delete
         - else
           .menu-item= link_to "Login", omniauth_authorize_path(:user, :google_oauth2)
