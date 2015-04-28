@@ -1,4 +1,12 @@
 .exercises-container
+  %ul.admin_menu
+    %li.drafted
+      =link_to "Drafted", ""
+    %li.approved
+      =link_to "Approved", ""
+    %li.rejected
+      =link_to "Rejected", ""
+
   .drafted-exercises
     - @exercise_categories.each do |exercise_category|
       - if exercise_category.has_exercises?("drafted")
@@ -10,6 +18,7 @@
                 = link_to "Exercise #{i + 1}", edit_admin_exercise_path(exercise)
                 .points
                   = "#{exercise.points} points"
+  %h2 Approved
   .approved-exercises
     - @exercise_categories.each do |exercise_category|
       - if exercise_category.has_exercises?("approved")
@@ -21,6 +30,7 @@
                 = link_to "Exercise #{i + 1}", edit_admin_exercise_path(exercise)
                 .points
                   = "#{exercise.points} points"
+  %h2 Rejected
   .rejected-exercises
     - @exercise_categories.each do |exercise_category|
       - if exercise_category.has_exercises?("rejected")
