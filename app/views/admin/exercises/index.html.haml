@@ -1,0 +1,34 @@
+.exercises-container
+  .drafted-exercises
+    - @exercise_categories.each do |exercise_category|
+      - if exercise_category.has_exercises?("drafted")
+        %h3.exercise-category= "#{exercise_category.name}"
+        %ul{class: "exercises"}
+          - exercise_category.drafted_exercises.each_with_index do |exercise, i|
+            %li
+              .exercise
+                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+                .points
+                  = "#{exercise.points} points"
+  .approved-exercises
+    - @exercise_categories.each do |exercise_category|
+      - if exercise_category.has_exercises?("approved")
+        %h3.exercise-category= "#{exercise_category.name}"
+        %ul{class: "exercises"}
+          - exercise_category.approved_exercises.each_with_index do |exercise, i|
+            %li
+              .exercise
+                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+                .points
+                  = "#{exercise.points} points"
+  .rejected-exercises
+    - @exercise_categories.each do |exercise_category|
+      - if exercise_category.has_exercises?("rejected")
+        %h3.exercise-category= "#{exercise_category.name}"
+        %ul{class: "exercises"}
+          - exercise_category.rejected_exercises.each_with_index do |exercise, i|
+            %li
+              .exercise
+                = link_to "Exercise #{i + 1}", exercise_path(exercise)
+                .points
+                  = "#{exercise.points} points"

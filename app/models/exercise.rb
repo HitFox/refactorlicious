@@ -4,7 +4,7 @@ class Exercise < ActiveRecord::Base
   belongs_to :exercise_category
   validates_presence_of :solution, :code_to_refactor, :points
 
-  enum status: { draft: 0 , approved: 1, rejected: 2 }
+  enum status: { drafted: 0 , approved: 1, rejected: 2 }
 
   def keywords_hash
     words = key_words.split(',')

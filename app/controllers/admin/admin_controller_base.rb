@@ -3,8 +3,6 @@ module Admin
     before_action :authenticate_user!
     before_action :redirect_unless_admin
 
-    # layout "admin"
-
     private
 
     def redirect_unless_admin
