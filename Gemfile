@@ -38,6 +38,7 @@ gem 'haml-rails'
 gem 'redcarpet'
 gem 'coderay', '~> 1.1.0'
 gem 'draper', '~> 1.3'
+gem 'react-rails', '~> 1.0'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
