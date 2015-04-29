@@ -39,6 +39,7 @@ describe ExercisesController do
         expect {
           post :create, exercise: attributes_for(:exercise)
         }.to change(Exercise, :count).by 1
+        expect(assigns(:exercise).status).to eq "drafted"
       end
 
       it "redirects to the exercises index" do

@@ -5,6 +5,7 @@ FactoryGirl.define do
     code_to_refactor "def bla bla end"
     solution "def bla end"
     key_words "def end"
+    status "approved"
   end
 
   factory :invalid_exercise, parent: :exercise do

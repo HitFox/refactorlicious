@@ -2,8 +2,7 @@
 @import "variables";
 @import "mixins";
 @import "globals";
-@import "exercises/index";
-@import "exercises/show";
+@import "exercises/*";
 @import "code_highlight";
 @import "admin/exercises/*";
 
