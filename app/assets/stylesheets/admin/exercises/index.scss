@@ -1,18 +1,39 @@
-.is-rejected {
-  color: $red;
+.exercises-panel {
+  height: calc(100vh - 4em);
 }
 
-.is-approved {
-  color: $green;
+.sidebar {
+  width: 20%;
+  height: 100%;
+  float: left;
+  background-color: $turquoise;
+  display: inline-block;
+  text-align: left;
+  padding-left: .5em;
+  padding-top: 1em;
 }
 
-.is-drafted {
-  color: $grey;
-}
+.exercises-list {
+  float: left;
+  width: 80%;
+  height: 100%;
+  background-color: $grey;
+  display: inline-block;
 
-.drafted-exercises, .approved-exercises, .rejected-exercises {
-  li a {
-    font-size: 1.5em;
-    line-height: 4em;
+  ul {
+    text-align: left;
   }
+
+  ul li {
+    padding-left: 1em;
+
+    &:nth-child(even) {
+      background-color: $light-grey;
+    }
+  }
+}
+
+.sidebar-filter-item {
+  text-align: left;
+  margin-top: 1em;
 }
