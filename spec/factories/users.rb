@@ -5,5 +5,11 @@ FactoryGirl.define do
     email { "#{first_name}.#{last_name}@hitfoxgroup.com".downcase }
     score Faker::Number.number(2)
     profile_picture "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+    role "user"
+  end
+
+  factory :admin, parent: :user do
+    role "admin"
   end
 end
+

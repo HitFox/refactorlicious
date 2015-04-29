@@ -1,7 +1,7 @@
 %p Hey there buddy, thanks for wanting to contribute to our exponentionally growing platform.
 = form_for exercise, url: admin_exercise_path(exercise) do |f|
   = render "shared/show_errors", exercise: exercise
-  = f.label :exercise_category
+  = f.label :exercise_category_id, "Exercise category"
   = f.collection_select(:exercise_category_id, ExerciseCategory.all, :id, :name)
   = f.label :points
   = f.select(:points, [10, 15, 25], selected: exercise.points)
