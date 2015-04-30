@@ -1,4 +1,3 @@
-%h2 Hey there buddy, thanks for wanting to contribute to our exponentionally growing platform.
 = form_for exercise do |f|
   = render "shared/show_errors", exercise: exercise
   = f.label :exercise_category
@@ -8,8 +7,11 @@
   .code
     .code_to_refactor
       = f.label :code_to_refactor
+      #code_editor
       = f.text_area :code_to_refactor
     .solution
       = f.label :solution
+      #solution_editor
       = f.text_area :solution
-  = f.submit "Submit"
+  #submit
+    = f.submit "Submit"

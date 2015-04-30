@@ -1,5 +1,5 @@
 form {
-  margin: 3em 10em 0 10em;
+  margin: 0em 10em 0 10em;
   position: relative;
 
   label, select, input {
@@ -13,11 +13,6 @@ form {
     margin-right: 10px;
     clear:both;
   }
-
-
-  // .category, .form_points, .code {
-  //   clear: both;
-  // }
 
   .code {
     clear:both;
@@ -35,12 +30,21 @@ form {
 
   .code_to_refactor, .solution {
     width: 50%;
+  }
 
-    textarea {
-      margin-top: 5px;
-      width: 99.2%;
-      height: 30em;
-    }
+  #code_editor, #solution_editor {
+    margin-top: 35px;
+    border: 5px solid $green;
+    width: 99.2%;
+    height: 30em;
+    text-align: left;
+  }
+
+  #exercise_code_to_refactor, #exercise_solution {
+    display: none;
   }
 }
+
+
+
 
