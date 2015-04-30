@@ -1,12 +1,11 @@
 form {
-  margin: 0em 10em 0 10em;
+  margin: 0em 8em 0 8em;
   position: relative;
 
   label, select, input {
     display: inline-block;
     float:left;
-    margin-top: 1em;
-    line-height: 15px;
+    margin-top: 1.5em;
     font-size: 1em;
   }
 
@@ -20,7 +19,6 @@ form {
     width: 100%;
     height: 31em;
     background-color: $red;
-    margin-top: 1em;
   }
 
   .code_to_refactor {
@@ -39,6 +37,7 @@ form {
     border-top: solid $light-grey 1.5em;
 
     label {
+      margin-top: 1em;
       padding-left: 1em;
       padding-bottom: 1em;
       text-transform: uppercase;
@@ -55,10 +54,14 @@ form {
   #exercise_code_to_refactor, #exercise_solution {
     display: none;
   }
+
+  .submit {
+    margin-top: 1em;
+  }
 }
 
-.thanks {
-  margin:3.5em 0 3em 0;
+.form-title {
+  margin:3.5em 0 2em 0;
 }
 
 

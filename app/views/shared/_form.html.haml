@@ -1,0 +1,15 @@
+= render "shared/show_errors", exercise: f.object
+= f.label :exercise_category
+= f.collection_select(:exercise_category_id, ExerciseCategory.all, :id, :name)
+= f.label :points
+= f.select(:points, [10, 15, 25])
+.code
+  .code_to_refactor
+    = f.label :code_to_refactor
+    #code_editor
+    = f.text_area :code_to_refactor
+  .solution
+    = f.label :solution
+    #solution_editor
+    = f.text_area :solution
+
