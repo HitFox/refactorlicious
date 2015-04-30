@@ -2,7 +2,7 @@ $(document).on('page:change', function() {
   if (onExercisesForm()){
     initializeCodeToRefactorEditor();
     initializeSolutionEditor();
-    installSubmitHandler();
+    installFormSubmitHandler();
   }
 });
 
@@ -38,7 +38,7 @@ function initializeSolutionEditor() {
 }
 
 
-function installSubmitHandler () {
+function installFormSubmitHandler () {
   $("#submit").click( function () {
     $("#exercise_code_to_refactor").val(code_editor.getValue());
     $("#exercise_solution").val(solution_editor.getValue());

@@ -1,5 +1,5 @@
 = render "shared/show_errors", exercise: f.object
-= f.label :exercise_category
+= f.label :exercise_category_id
 = f.collection_select(:exercise_category_id, ExerciseCategory.all, :id, :name)
 = f.label :points
 = f.select(:points, [10, 15, 25])

@@ -19,7 +19,7 @@ describe "The exercise editor" do
     expect(get_editor_value).to eq "I am typing"
   end
 
-  it "shows a fail message if the typed a wrong answer", js: true do
+  it "shows a fail message if the user typed a wrong answer", js: true do
     set_editor_value("I am typing")
     click_on "Submit"
     expect(page).to have_content('review your code, something is wrong')
