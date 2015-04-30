@@ -9,8 +9,12 @@ class Exercise < ActiveRecord::Base
   delegate :name, :description, :example, to: :exercise_category, allow_nil: true, prefix: true
 
   def keywords_hash
+    if (key_words)
     words = key_words.split(',')
     words.inject(Hash.new(0)) { |h, w| h[w.strip]+=1 ; h}
+    else
+    words = words = { "def" => solution.scan("def").count}
+    end
   end
 
 end
