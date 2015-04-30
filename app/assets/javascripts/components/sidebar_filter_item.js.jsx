@@ -4,16 +4,17 @@ var SidebarFilterItem = React.createClass({
   },
 
   render: function() {
-    var labelName = this.props.filterItem.labelName
+    var labelName = this.props.filterItem.labelName;
+    var labelSlug = labelName.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
     var selectOptions = this.props.filterItem.options.map(function(option){
-      return <option value={option} id={labelName.toLowerCase()}>{option}</option>
-    })
+      return <option value={option}>{option}</option>
+    });
 
     return (
       <div className="sidebar-filter-item">
         <li>
-          <label for={labelName.toLowerCase()}>{labelName}</label>
-          <select>
+          <label htmlFor={labelSlug}>{labelName}</label>
+          <select id={labelSlug}>
             {selectOptions}
           </select>
         </li>
