@@ -20,8 +20,8 @@
   #wrapper<
     %pre= @exercise.code_to_refactor
   %footer
-    .hint Hint
-    .submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
+    .button.hint Hint
+    .button.submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
     #message
       #success
         %p Nice refactoring!

@@ -5,8 +5,9 @@ form {
   label, select, input {
     display: inline-block;
     float:left;
-    margin-top: 10px;
+    margin-top: 1em;
     line-height: 15px;
+    font-size: 1em;
   }
 
   label {
@@ -17,25 +18,36 @@ form {
   .code {
     clear:both;
     width: 100%;
-    height: 50px;
+    height: 31em;
+    background-color: $red;
+    margin-top: 1em;
   }
 
   .code_to_refactor {
     float: left;
+    border-right: solid $light-grey .1em;
   }
 
   .solution {
     float: right;
+    border-left: solid $light-grey .1em;
   }
 
   .code_to_refactor, .solution {
     width: 50%;
+    color: $white;
+    border-top: solid $light-grey 1.5em;
+
+    label {
+      padding-left: 1em;
+      padding-bottom: 1em;
+      text-transform: uppercase;
+    }
   }
 
   #code_editor, #solution_editor {
     margin-top: 35px;
-    border: 5px solid $green;
-    width: 99.2%;
+    width: 100%;
     height: 30em;
     text-align: left;
   }
@@ -43,6 +55,10 @@ form {
   #exercise_code_to_refactor, #exercise_solution {
     display: none;
   }
+}
+
+.thanks {
+  margin:3.5em 0 3em 0;
 }
 
 

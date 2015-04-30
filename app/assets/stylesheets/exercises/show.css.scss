@@ -145,13 +145,6 @@
     .hint, .submit {
       display: inline-block;
       margin: 1em;
-      padding: .65em 1em;
-      color: $white;
-
-      &:hover {
-        cursor: pointer;
-        opacity: .8;
-      }
     }
 
     .hint {
@@ -161,12 +154,8 @@
     }
 
     .submit {
-      background-color: $green;
       position: absolute;
       right: .5em;
-      a {
-        color: $white;
-      }
     }
 
     .solution {
