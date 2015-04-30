@@ -2,7 +2,7 @@ var Exercise = React.createClass({
 
   render: function() {
     return (
-      <li>{this.props.exerciseCategory.name}</li>
+      <li>Exercise {this.props.index}</li>
     );
   }
 });

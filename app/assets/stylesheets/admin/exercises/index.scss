@@ -4,6 +4,7 @@
 
 .sidebar {
   width: 20%;
+  min-width: 13em;
   height: 100%;
   float: left;
   background-color: $turquoise;
@@ -16,6 +17,7 @@
 .exercises-list {
   float: left;
   width: 80%;
+  max-width: calc(100% - 13em);
   height: 100%;
   background-color: $grey;
   display: inline-block;
@@ -25,6 +27,7 @@
   }
 
   ul li {
+    padding: .5em;
     padding-left: 1em;
 
     &:nth-child(even) {

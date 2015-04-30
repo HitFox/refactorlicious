@@ -1,16 +1,20 @@
 var SidebarFilterItem = React.createClass({
+  propTypes: {
+    filterItem: React.PropTypes.object
+  },
 
   render: function() {
-    var exerciseCategoryNames = this.props.exerciseCategoryNames.map(function(exerciseCategoryName){
-      return <option value={exerciseCategoryName}>{exerciseCategoryName}</option>
+    var labelName = this.props.filterItem.labelName
+    var selectOptions = this.props.filterItem.options.map(function(option){
+      return <option value={option} id={labelName.toLowerCase()}>{option}</option>
     })
 
     return (
       <div className="sidebar-filter-item">
         <li>
-          {this.props.filterItem}
+          <label for={labelName.toLowerCase()}>{labelName}</label>
           <select>
-            {exerciseCategoryNames}
+            {selectOptions}
           </select>
         </li>
       </div>

@@ -1,14 +1,10 @@
 var ExercisesPanel = React.createClass({
 
   render: function() {
-    var exerciseCategoryNames = this.props.exerciseCategories.map(function(exerciseCategory){
-      return exerciseCategory.name;
-    })
-
     return (
       <div className="exercises-panel">
-        <Sidebar exerciseCategoryNames={exerciseCategoryNames} />
-        <ExercisesList exerciseCategories={this.props.exerciseCategories}/>
+        <Sidebar filterItems={this.props.filterItems} />
+        <ExercisesList exercises={this.props.exercises} />
       </div>
     );
   }

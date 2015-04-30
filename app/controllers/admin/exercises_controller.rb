@@ -2,7 +2,8 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   before_action :set_exercise, only: [:update, :edit]
 
   def index
-    @exercise_categories = ExerciseCategory.all
+    @exercises = Exercise.all
+    @filter_items = generate_filter_items
   end
 
   def update
@@ -25,5 +26,11 @@ class Admin::ExercisesController < Admin::AdminControllerBase
 
   def set_exercise
     @exercise = Exercise.find(params[:id])
+  end
+
+  def generate_filter_items
+    status = { labelName: "Status", options: Exercise.statuses.keys }
+    category = { labelName: "Category", options: ExerciseCategory.all.map(&:name) }
+    [status, category]
   end
 end
