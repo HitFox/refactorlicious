@@ -20,7 +20,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   private
 
   def exercise_params
-    params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution, :status)
+    params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution, :key_words, :status)
   end
 
   def set_exercise

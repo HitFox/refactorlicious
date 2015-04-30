@@ -58,6 +58,10 @@ form {
   .submit {
     margin-top: 1em;
   }
+
+  #exercise_key_words {
+    width: calc(100% - 159px);
+  }
 }
 
 .form-title {
