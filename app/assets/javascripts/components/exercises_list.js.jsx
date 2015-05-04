@@ -1,8 +1,8 @@
 var ExerciseList = React.createClass({
   render: function() {
-    var iconPath = this.props.iconPath
+    var iconsPath = this.props.iconsPath
     var exercises = this.props.exercises.map(function(exercise, index){
-          return <Exercise exercise={exercise} index={index} iconPath={iconPath} />
+          return <Exercise exercise={exercise} index={index} iconsPath={iconsPath} />
         })
 
     return (

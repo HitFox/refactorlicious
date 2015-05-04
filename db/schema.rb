@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20150428133859) do
 
   create_table "exercises", force: :cascade do |t|
     t.integer  "points"
-    t.string   "solution",                         null: false
-    t.string   "code_to_refactor",                 null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "exercise_category_id"
+    t.string   "code_to_refactor"
+    t.string   "solution"
     t.string   "key_words"
     t.integer  "status",               default: 0
   end

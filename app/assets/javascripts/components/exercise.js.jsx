@@ -12,20 +12,17 @@ var Exercise = React.createClass({
   },
 
   getExerciseIcons: function() {
-    var iconClasses = this.props.iconClasses;
-    var iconPath = this.props.iconPath;
-    var svgStrings = iconClasses.map(function(iconClass){
-      return '<svg class="' + iconClass + '"><use xlink:href="' + iconPath + '#' + iconClass + '"></use></svg>'
+    var iconsPath = this.props.iconsPath
+    return this.props.iconClasses.map(function(iconClass) {
+      return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} />;
     });
-    var html = svgStrings.join('');
-    return {__html: html};
   },
 
   render: function() {
     return (
       <li>
         {this.getExerciseLink()}
-        <div className="svg-icons" dangerouslySetInnerHTML={this.getExerciseIcons()} />
+        <div className="svg-icons">{this.getExerciseIcons()}</div>
       </li>
     );
   }
