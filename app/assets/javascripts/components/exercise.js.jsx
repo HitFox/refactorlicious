@@ -12,15 +12,23 @@ var Exercise = React.createClass({
   },
 
   getExerciseIcons: function() {
-    var iconsPath = this.props.iconsPath
+    var iconsPath = this.props.iconsPath;
+    var exerciseEditPath = '/admin/exercises/' + this.props.exercise.id + '/edit';
+
     return this.props.iconClasses.map(function(iconClass) {
-      return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} />;
+      if (iconClass === 'icon-pencil') {
+        return (
+          <SvgIcon iconClass={iconClass} iconsPath={iconsPath} link={exerciseEditPath} />
+        );
+      } else {
+        return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} />;
+      }
     });
   },
 
   render: function() {
     return (
-      <li>
+      <li className={this.props.exercise.status}>
         {this.getExerciseLink()}
         <div className="svg-icons">{this.getExerciseIcons()}</div>
       </li>
