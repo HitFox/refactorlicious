@@ -7,6 +7,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   end
 
   def update
+    binding.pry
     if @exercise.update(exercise_params)
       redirect_to admin_exercises_path, notice: "Exercise was successfully updated"
     else

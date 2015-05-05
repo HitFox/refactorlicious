@@ -47,6 +47,18 @@
       }
     }
   }
+
+  .approved .svg-icons span.icon-check {
+    fill: grey;
+
+    /*&:before {
+      content: "";
+      width: 2em;
+      height: 2em;
+      position: absolute;
+      right: 4em;
+    }*/
+  }
 }
 
 .sidebar-filter-item {

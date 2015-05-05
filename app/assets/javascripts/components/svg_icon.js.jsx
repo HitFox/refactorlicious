@@ -8,7 +8,7 @@ var SvgIcon = React.createClass({
 
   render: function() {
     return (
-      <span onClick={this.props.callback} dangerouslySetInnerHTML={{__html: this.getIconHtml()}}></span>
+      <span className={this.props.iconClass} onClick={this.props.callback} dangerouslySetInnerHTML={{__html: this.getIconHtml()}}></span>
     );
   }
 });
