@@ -1,6 +1,5 @@
-form {
-  margin: 0em 8em 0 8em;
-  position: relative;
+.contribute_container {
+  margin: 0 8em 0 8em;
 
   label, select, input {
     display: inline-block;
@@ -14,11 +13,14 @@ form {
     clear:both;
   }
 
+  #exercise_key_words {
+    width: calc(100% - 158.4px);
+  }
   .code {
     clear:both;
     width: 100%;
-    height: 31em;
     background-color: $red;
+    min-height: 31em;
   }
 
   .code_to_refactor {
@@ -45,7 +47,6 @@ form {
   }
 
   #code_editor, #solution_editor {
-    margin-top: 35px;
     width: 100%;
     height: 30em;
     text-align: left;
@@ -56,18 +57,13 @@ form {
   }
 
   .submit {
-    margin-top: 1em;
+    display: block;
+    margin-top: 1.5em;
   }
 
-  #exercise_key_words {
-    width: calc(100% - 159px);
-  }
 }
 
 .form-title {
   margin:3.5em 0 2em 0;
 }
-
-
-
 

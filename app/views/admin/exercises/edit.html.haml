@@ -3,6 +3,4 @@
   = f.label :status
   = f.select(:status, Exercise.statuses.keys, selected: f.object.status)
   = render "shared/form", f: f
-  #submit
-    = f.submit "Submit", class:"submit button"
 
