@@ -19,47 +19,53 @@
   .code {
     clear:both;
     width: 100%;
-    background-color: $red;
     min-height: 31em;
+    background-color: $red;
   }
 
   .code_to_refactor {
-    float: left;
-    border-right: solid $light-grey .1em;
-  }
-
-  .solution {
-    float: right;
-    border-left: solid $light-grey .1em;
-  }
-
-  .code_to_refactor, .solution {
-    width: 50%;
-    color: $white;
-    border-top: solid $light-grey 1.5em;
-
-    label {
-      margin-top: 1em;
-      padding-left: 1em;
-      padding-bottom: 1em;
-      text-transform: uppercase;
+    @media screen and (min-width: $break-large) {
+      float: left;
+      border-right: solid $light-grey .1em;
     }
   }
 
-  #code_editor, #solution_editor {
-    width: 100%;
-    height: 30em;
-    text-align: left;
+  .solution {
+    @media screen and (min-width: $break-large) {
+      float: right;
+      border-left: solid $light-grey .1em;
+    }
   }
 
-  #exercise_code_to_refactor, #exercise_solution {
-    display: none;
-  }
+  .code_to_refactor, .solution {
+    color: $white;
+    border-top: solid $light-grey 1.5em;
+    @media screen and (min-width: $break-large) {
+     width: 50%;
+   }
 
-  .submit {
-    display: block;
-    margin-top: 1.5em;
+   label {
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    text-transform: uppercase;
   }
+}
+
+#code_editor, #solution_editor {
+  width: 100%;
+  height: 30em;
+  text-align: left;
+}
+
+#exercise_code_to_refactor, #exercise_solution {
+  display: none;
+}
+
+.submit {
+  display: block;
+  margin-top: 1.5em;
+}
 
 }
 
