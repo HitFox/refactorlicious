@@ -7,21 +7,21 @@
         %a{href: "#code-challenge"} CODE CHALLENGE
   .tabs
     .introduction#introduction
-      %h3= @exercise.exercise_category.name
-      %p= markdown(@exercise.exercise_category.description)
+      %h3= @exercise.exercise_category_name
+      %p= markdown(@exercise.exercise_category_description)
       %h3 Example
-      %pre.code-highlight= highlight(@exercise.exercise_category.example)
+      %pre.code-highlight= highlight(@exercise.exercise_category_example)
     .code-challenge#code-challenge
       %h3 Please refactor the following code:
-      %pre.code-highlight= highlight(render "shared/code/#{name_of_partial}")
+      %pre.code-highlight= highlight(@exercise.code_to_refactor)
 .editor{data: {storage_id: "exercise_#{@exercise.id}"}}
   .welcome
     %p Please refactor the code in the editor below!
   #wrapper<
-    %pre= render "shared/code/#{name_of_partial}"
+    %pre= @exercise.code_to_refactor
   %footer
-    .hint Hint
-    .submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
+    .button.hint Hint
+    .button.submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
     #message
       #success
         %p Nice refactoring!
@@ -31,5 +31,5 @@
       %p#close x
     .solution
       %h2 Solution
-      %pre.code-highlight= highlight(render "shared/solution/#{name_of_partial}")
+      %pre.code-highlight= highlight(@exercise.solution)
     #key_words= @exercise.keywords_hash.to_json

@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def user_exercises_hash
     @user_exercises_hash ||= Hash[user_exercises.map { |a| [a.exercise_id, a.status]}]
   end
+
+  def admin?
+    role == "admin"
+  end
 end

@@ -1,4 +1,4 @@
 class ExerciseCategoryDecorator < Draper::Decorator
-  delegate_all
-  decorates_association :exercises
+  delegate :name
+  decorates_association :approved_exercises
 end

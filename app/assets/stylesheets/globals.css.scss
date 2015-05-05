@@ -126,3 +126,27 @@ header {
     }
   }
 }
+
+.button {
+  padding: .65em 1em;
+  color: $white;
+  border:none;
+  font-size: 1em;
+
+   &:hover {
+        cursor: pointer;
+        opacity: .8;
+      }
+}
+
+.submit {
+  background-color: $green;
+  a {
+        color: $white;
+    }
+}
+
+.error_explanation {
+  color:red;
+  margin-bottom: 1em;
+}

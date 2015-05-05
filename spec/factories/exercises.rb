@@ -1,13 +1,15 @@
 FactoryGirl.define do
   factory :exercise do
-    points [10, 15, 25].sample
+    points 10
     association :exercise_category, strategy: :build
+    code_to_refactor "def bla bla end"
+    solution "def bla end"
+    key_words "def end"
+    status "approved"
   end
 
-  factory :inline_method_exercise, parent: :exercise do
-    id 2
-    points 10
-    key_words "def, end"
-    association :exercise_category, strategy: :build
+  factory :invalid_exercise, parent: :exercise do
+    solution nil
   end
+
 end

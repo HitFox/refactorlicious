@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def markdown(text)
     renderer ||= Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
     options = { strikethrough: true, fenced_code_blocks: true, no_intra_emphasis: true }

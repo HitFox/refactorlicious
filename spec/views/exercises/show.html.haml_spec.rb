@@ -4,7 +4,7 @@ describe 'exercises/show.html.haml' do
 
   context "On exercises show" do
 
-    let(:exercise) { create(:inline_method_exercise) }
+    let(:exercise) { create(:exercise) }
 
     before :each do
       assign(:exercise, exercise)
