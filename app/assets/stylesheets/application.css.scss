@@ -13,10 +13,11 @@
   left: 0;
   right: 0;
   text-align: center;
-  @include transition(opacity 0.3s ease);
+  @include transition(opacity 0.3s ease, visibility 0.3s ease);
 
   &.hidden {
     opacity: 0;
+    visibility: hidden;
   }
 
   &.notice {

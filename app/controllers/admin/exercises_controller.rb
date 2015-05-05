@@ -1,5 +1,5 @@
 class Admin::ExercisesController < Admin::AdminControllerBase
-  before_action :set_exercise, only: [:update, :edit]
+  before_action :set_exercise, only: [:update, :edit, :destroy]
 
   def index
     @exercises = Exercise.all
@@ -16,6 +16,17 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   end
 
   def edit
+  end
+
+  def destroy
+    respond_to do |format|
+      if @exercise.destroy
+        format.json { render json: @exercise, status: :ok }
+      else
+        format.json { render json: @exercise.errors, status: :internal_server_error }
+      end
+    end
+
   end
 
   private
