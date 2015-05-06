@@ -7,12 +7,12 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   end
 
   def update
-    binding.pry
-    if @exercise.update(exercise_params)
-      redirect_to admin_exercises_path, notice: "Exercise was successfully updated"
-    else
-      flash[:alert] = "Could not save exercise!"
-      render :edit
+    respond_to do |format|
+      if @exercise.update(exercise_params)
+        format.json { render json: @exercise, status: :ok }
+      else
+        format.json { render json: @exercise.errors, status: :internal_server_error }
+      end
     end
   end
 
@@ -27,7 +27,6 @@ class Admin::ExercisesController < Admin::AdminControllerBase
         format.json { render json: @exercise.errors, status: :internal_server_error }
       end
     end
-
   end
 
   private

@@ -24,7 +24,7 @@ var Exercise = React.createClass({
         success: function() {
           this.setState({deleted: !this.state.deleted});
         }.bind(this),
-        error: function (){
+        error: function () {
           console.log('Error: Something went wrong on the server!', arguments);
         }.bind(this)
       });
@@ -38,9 +38,9 @@ var Exercise = React.createClass({
       method: 'PATCH',
       data: {exercise: this.props.exercise},
       success: function() {
-        this.setState({status: 'approved'});
+        this.setState({status: this.props.exercise.status});
       }.bind(this),
-      error: function (){
+      error: function () {
         console.log('Error: Something went wrong on the server!', arguments);
       }.bind(this)
     });
@@ -53,9 +53,9 @@ var Exercise = React.createClass({
       method: 'PATCH',
       data: {exercise: this.props.exercise},
       success: function() {
-        this.setState({status: 'rejected'});
+        this.setState({status: this.props.exercise.status});
       }.bind(this),
-      error: function (){
+      error: function () {
         console.log('Error: Something went wrong on the server!', arguments);
       }.bind(this)
     });
@@ -66,13 +66,7 @@ var Exercise = React.createClass({
     var exerciseEditPath = '/admin/exercises/' + this.props.exercise.id + '/edit';
     var deleteExercise = this.deleteExercise;
     var approveExercise = this.approveExercise;
-    var patchExercise;
-
-    if (this.state.status === 'rejected') {
-      patchExercise = rejectExercise;
-    } else if (this.state.status === 'approved') {
-      patchExercise = approveExercise;
-    }
+    var rejectExercise = this.rejectExercise;
 
     return this.props.iconClasses.map(function(iconClass) {
       if (iconClass === 'icon-pencil') {
@@ -85,11 +79,11 @@ var Exercise = React.createClass({
         );
       } else if (iconClass === 'icon-check') {
         return (
-          <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={patchExercise} />
+          <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={approveExercise} />
         );
       } else if (iconClass === 'icon-circle-slash') {
         return (
-          <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={patchExercise} />
+          <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={rejectExercise} />
         );
       } else {
         return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} />;

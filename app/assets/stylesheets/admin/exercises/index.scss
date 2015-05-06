@@ -48,16 +48,11 @@
     }
   }
 
-  .approved .svg-icons span.icon-check {
-    fill: grey;
-
-    /*&:before {
-      content: "";
-      width: 2em;
-      height: 2em;
-      position: absolute;
-      right: 4em;
-    }*/
+  .approved .svg-icons .icon-check, .rejected .svg-icons .icon-circle-slash {
+    fill: lighten(grey, 20);
+    &:hover {
+      cursor: default;
+    }
   }
 }
 
