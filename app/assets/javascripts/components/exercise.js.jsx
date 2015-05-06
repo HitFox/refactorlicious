@@ -1,7 +1,8 @@
 var Exercise = React.createClass({
   getInitialState: function() {
     return { deleted: false, 
-              status: this.props.exercise.status }
+              status: this.props.exercise.status,
+              codePreviewHidden: true }
   },
 
   getDefaultProps: function() {
@@ -61,12 +62,21 @@ var Exercise = React.createClass({
     });
   },
 
+  codePreviewClass: function() {
+    return this.state.codePreviewHidden ? 'code-preview-wrapper' : 'code-preview-wrapper is-visible';
+  },
+
+  toggleCodePreview: function() {
+    this.setState({codePreviewHidden: !this.state.codePreviewHidden});
+  },
+
   getExerciseIcons: function() {
     var iconsPath = this.props.iconsPath;
     var exerciseEditPath = '/admin/exercises/' + this.props.exercise.id + '/edit';
     var deleteExercise = this.deleteExercise;
     var approveExercise = this.approveExercise;
     var rejectExercise = this.rejectExercise;
+    var toggleCodePreview = this.toggleCodePreview;
 
     return this.props.iconClasses.map(function(iconClass) {
       if (iconClass === 'icon-pencil') {
@@ -85,10 +95,18 @@ var Exercise = React.createClass({
         return (
           <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={rejectExercise} />
         );
-      } else {
-        return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} />;
+      } else if (iconClass === 'icon-code') {
+        return <SvgIcon iconClass={iconClass} iconsPath={iconsPath} callback={toggleCodePreview} />;
       }
     });
+  },
+
+  getCodePreview: function() {
+    return (
+      <div className='code-preview'>
+        {this.props.exercise.code_to_refactor}
+      </div>
+    );
   },
 
   render: function() {
@@ -96,7 +114,12 @@ var Exercise = React.createClass({
       return (
         <li className={this.state.status}>
           {this.getExerciseLink()}
-          <div className="svg-icons">{this.getExerciseIcons()}</div>
+          <div className="svg-icons">
+            {this.getExerciseIcons()}
+            <div className={this.codePreviewClass()} >
+              {this.getCodePreview()}
+            </div>
+          </div>
         </li>
       );
     } else {

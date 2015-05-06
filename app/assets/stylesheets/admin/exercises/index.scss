@@ -107,4 +107,39 @@
       cursor: pointer;
     }
   }
+
+  .code-preview-wrapper {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    right: 11em;
+    top: .3em;
+
+    &.is-visible {
+      display: initial;
+    }
+  }
+
+  .code-preview {
+    z-index: 1;
+    overflow: auto;
+    background-color: $white;
+    padding: .5em;
+    top: 2.5em;
+    width: 15em;
+    max-height: 15em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: .3em;
+      right: -.5em;
+      width: 0;
+      height: 0;
+      border-left: 10px solid $white;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+  }
 }
