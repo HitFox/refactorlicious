@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :exercises, only: [:show, :index, :create, :new] do
-      patch :mark_as_finished
+      patch :submit
   end
 
   resource :session, only: :destroy do

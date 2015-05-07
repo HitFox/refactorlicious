@@ -62,7 +62,7 @@
   position: fixed;
   left: calc(33%);
 
-  #success, #fail {
+  #success, #fail, #syntax_errors{
     display: none;
     position: absolute;
     top:0;
@@ -93,9 +93,13 @@
     }
   }
 
-  #fail {
+  #fail, #syntax_errors {
     background-color: $red;
     padding-top: 1.3em;
+  }
+
+  #syntax_errors{
+    overflow:auto;
   }
 
   #close {

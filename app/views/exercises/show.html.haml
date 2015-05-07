@@ -21,13 +21,16 @@
     %pre= @exercise.code_to_refactor
   %footer
     .button.hint Hint
-    .button.submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
+    .button.submit Submit
     #message
       #success
         %p Nice refactoring!
         #next= link_to "Go to next exercise", exercise_path(next_exercise)
       #fail
-        %p Oops... review your code, something is wrong
+        %p Oops... review your code, your refactoring is not finished
+      #syntax_errors
+        %p There are syntax errors in your answer
+        %pre
       %p#close x
     .solution
       %h2 Solution

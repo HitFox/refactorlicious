@@ -33,7 +33,8 @@ function installSubmitHandler() {
   $(".submit").click(checkIfValidAnswer);
 
   $("#close").click( function() {
-    $("#fail, #success, #message").hide();
+    $("#fail, #success, #syntax_errors, #message").hide();
+    $("#close").css({ "right": "1em"});
   })
 }
 
@@ -43,28 +44,39 @@ function checkIfValidAnswer() {
   var answer = localStorage.getItem(localStorageID);
   var is_valid_answer = true;
 
-  if (answer) {
-    for (var word in expected_words) {
-      var reg_exp = new RegExp(word , 'g')
-      var count = (answer.match(reg_exp) || []).length;
-      if (expected_words[word] !== count) {
-        is_valid_answer = false;
-      }
-    }
-  } else {
-    is_valid_answer = false;
-  }
-
   $("#message").show();
-
-  if(!is_valid_answer) {
+  if(!answer) {
     $("#fail").show();
   } else {
-     $("#success").show();
-     $.ajax({
-       url: window.location.href + "/mark_as_finished",
-       method: "PATCH" });
-  }
+    $.ajax({
+     url: window.location.href + "/submit.json",
+     method: "PATCH",
+     data: {answer: answer} ,
+     success: function(data){
+      if (data['answer_errors']) {
+        $("#syntax_errors").show();
+        $("#syntax_errors pre").html(data['answer_errors']);
+        $("#close").css({ "right": "1.7em"});
+      }
+      else {
+        for (var word in expected_words) {
+          var reg_exp = new RegExp(word , 'g')
+          var count = (answer.match(reg_exp) || []).length;
+          if (expected_words[word] !== count) {
+          is_valid_answer = false;
+        }
+      }
+        if(is_valid_answer) {
+         $("#success").show();
+        }
+
+        else {
+          $("#fail").show();
+        }
+      }
+    }
+  });
+ }
 }
 
 function onExercisesShow() {

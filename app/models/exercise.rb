@@ -17,4 +17,20 @@ class Exercise < ActiveRecord::Base
     end
   end
 
+  class << self
+    def findSyntaxErrors( script )
+      catch(:x) do
+        eval("throw :x
+        "+ script )
+      end
+      return nil
+    rescue Exception => e
+      str = e.message.gsub(/\(eval\):\d+/) do |match|
+        match.gsub(/\d+/) do |match|
+          match.to_i - 1
+        end
+      end
+      str.gsub(/\(eval\)/, 'answer')
+    end
+  end
 end
