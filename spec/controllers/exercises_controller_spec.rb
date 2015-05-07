@@ -12,11 +12,18 @@ describe ExercisesController do
       get :show, id: exercise.id
     end
 
-    it "changes exercise status to finished" do
-      patch :mark_as_finished, exercise_id: exercise.id
+    it "changes exercise status to finished given a valid answer" do
+      patch :submit, exercise_id: exercise.id, answer: exercise.solution, format: 'json'
       user_exercise = UserExercise.find_by(user_id: user.id, exercise_id: exercise.id)
       expect(user_exercise.status).to eq ("finished")
     end
+
+    it "changes exercise status to incomplete given a non valid answer" do
+      patch :submit, exercise_id: exercise.id, answer: "non valid", format: 'json'
+      user_exercise = UserExercise.find_by(user_id: user.id, exercise_id: exercise.id)
+      expect(user_exercise.status).to eq ("incomplete")
+    end
+
   end
 
   describe "GET #show" do

@@ -2,9 +2,9 @@ FactoryGirl.define do
   factory :exercise do
     points 10
     association :exercise_category, strategy: :build
-    code_to_refactor "def bla bla end"
-    solution "def bla end"
-    key_words "def end"
+    code_to_refactor "def bla bla; end"
+    solution "def bla; end"
+    key_words "def, end"
     status "approved"
   end
 
