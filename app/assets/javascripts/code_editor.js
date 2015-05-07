@@ -30,20 +30,16 @@ function updateLocalStorage() {
 }
 
 function installSubmitHandler() {
-  $(".submit").click(checkIfValidAnswer);
+  $(".submit").click(submitAnswer);
 
   $("#close").click( function() {
     $("#fail, #success, #syntax_errors, #message").hide();
-    $("#close").css({ "right": "1em"});
   })
 }
 
-function checkIfValidAnswer() {
+function submitAnswer() {
   var localStorageID = $('.editor').attr('data-storage-id');
-  var expected_words = JSON.parse($("#key_words").text());
   var answer = localStorage.getItem(localStorageID);
-  var is_valid_answer = true;
-
   $("#message").show();
   if(!answer) {
     $("#fail").show();
@@ -52,33 +48,32 @@ function checkIfValidAnswer() {
      url: window.location.href + "/submit.json",
      method: "PATCH",
      data: {answer: answer} ,
-     success: function(data){
-      if (data['answer_errors']) {
-        $("#syntax_errors").show();
-        $("#syntax_errors pre").html(data['answer_errors']);
-        $("#close").css({ "right": "1.7em"});
-      }
-      else {
-        for (var word in expected_words) {
-          var reg_exp = new RegExp(word , 'g')
-          var count = (answer.match(reg_exp) || []).length;
-          if (expected_words[word] !== count) {
-          is_valid_answer = false;
-        }
-      }
-        if(is_valid_answer) {
-         $("#success").show();
-        }
-
-        else {
-          $("#fail").show();
-        }
-      }
+     success: function(submitResponse){
+      displaySubmitResult(submitResponse);
     }
   });
- }
+  }
 }
 
 function onExercisesShow() {
   return window.location.pathname.match(/^\/exercises\/\d+/) !== null;
 }
+
+function displaySubmitResult (submitResponse) {
+  switch (submitResponse['type']) {
+    case 'successfull':
+      $("#close").css({ "right": "1em"});
+      $("#success").show();
+      break;
+    case 'has_syntax_errors':
+      $("#close").css({ "right": "1.7em"});
+      $("#syntax_errors").show();
+      $("#syntax_errors pre").html(submitResponse['syntax_errors']);
+      break;
+    case 'pending_refactoring':
+      $("#close").css({ "right": "1em"});
+      $("#fail").show();
+      break;
+  }
+}
+

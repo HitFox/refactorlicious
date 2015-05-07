@@ -1,1 +1,2 @@
-json.answer_errors @answerErrors
+json.type @submitResult.type
+json.syntax_errors @submitResult.syntax_errors

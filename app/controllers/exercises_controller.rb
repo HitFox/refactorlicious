@@ -26,8 +26,9 @@ class ExercisesController < ApplicationController
   end
 
   def submit
-    @answerErrors = Exercise.findSyntaxErrors(params[:answer])
-    if (!@answerErrors)
+    @exercise = Exercise.find(params[:exercise_id]);
+    @submitResult = SubmitResult.new(params[:answer], @exercise.keywords_hash)
+    if (@submitResult.is_successfull())
       user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:exercise_id])
       user_exercise.update_attribute(:status, "finished")
     end
