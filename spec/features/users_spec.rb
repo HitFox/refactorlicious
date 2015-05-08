@@ -20,10 +20,12 @@ describe "A user navigating the site" do
       expect(page).to have_css(".icon-star-half")
     end
 
-    it "can submit a new exercise" do
+    it "can submit a new exercise if introducing valid data" do
       visit "/exercises/new"
-      fill_in "Code to refactor", with: "Ramstein is awesome"
       fill_in "Solution", with: "Buck dich"
+      click_on "Submit"
+      expect(page).to have_content("1 error prohibited this exercise from being saved")
+      fill_in "Code to refactor", with: "Ramstein is awesome"
       click_on "Submit"
       expect(page).to have_content("You have successfully submitted a new exercise")
     end

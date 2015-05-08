@@ -62,3 +62,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy', require: false
 end
+
+group :production do
+  gem 'rails_12factor'
+end
