@@ -45,13 +45,13 @@ function submitAnswer() {
     $("#fail").show();
   } else {
     $.ajax({
-     url: window.location.href + "/submit.json",
-     method: "PATCH",
-     data: {answer: answer} ,
-     success: function(submitResponse){
-      displaySubmitResult(submitResponse);
-    }
-  });
+      url: window.location.href + "/submit.json",
+      method: "PATCH",
+      data: {answer: answer} ,
+      success: function(submitResponse){
+        displaySubmitResult(submitResponse);
+      }
+    });
   }
 }
 
