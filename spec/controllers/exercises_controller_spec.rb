@@ -64,7 +64,7 @@ describe ExercisesController do
 
       it "render the new template" do
         post :create, exercise: attributes_for(:invalid_exercise)
-        expect(response).to render_template :new
+        expect(response).to redirect_to new_exercise_path
       end
     end
   end

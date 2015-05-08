@@ -10,7 +10,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
       redirect_to admin_exercises_path, notice: "Exercise was successfully updated"
     else
       flash[:alert] = "Could not save exercise!"
-      render :edit
+      redirect_to edit_admin_exercise #render does not display the correct url, which is necessary to add ace.js
     end
   end
 
