@@ -21,7 +21,7 @@ class ExercisesController < ApplicationController
       redirect_to exercises_path, notice: "You have successfully submitted a new exercise"
     else
       flash[:alert] = "Sorry, but something with your submission went wrong"
-      redirect_to new_exercise_path #render does not display the correct url, which is necessary to add ace.js
+      render :new
     end
   end
 

@@ -8,11 +8,7 @@ $(document).on('page:change', function() {
 
 
 function onExercisesForm() {
-  var reg_exp_new_exercise = new RegExp(/^\/exercises\/new/);
-  var reg_exp_admin_edit = new RegExp(/^\/admin\/exercises\/\d+\/edit/);
-  var path =  window.location.pathname;
-  return path.match(reg_exp_new_exercise) !== null ||
-  path.match(reg_exp_admin_edit) !== null;
+  return $("body").find(".code").length>0
 }
 
 function initializeCodeToRefactorEditor() {

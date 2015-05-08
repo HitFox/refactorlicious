@@ -35,7 +35,7 @@ class SubmitResult
         eval("throw :x
           "+ script )
       end
-    rescue Exception => e
+    rescue SyntaxError => e
       str = e.message.gsub(/\(eval\):\d+/) do |match|
         match.gsub(/\d+/) do |match|
           match.to_i - 1
