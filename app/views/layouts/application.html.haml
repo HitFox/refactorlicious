@@ -23,6 +23,6 @@
             .menu-item= link_to "Admin", admin_exercises_path
           .menu-item= link_to "Logout", session_path, method: :delete
         - else
-          .menu-item= link_to "Login", omniauth_authorize_path(:user, :google_oauth2)
+          .menu-item= link_to "Login", omniauth_authorize_path(:user, :google_oauth2, :protocol => "https")
     .content
       = yield
