@@ -5,9 +5,7 @@ Rails.application.routes.draw do
       patch :submit
   end
 
-  resource :session, only: :destroy do
-    get :error
-  end
+  get '/session/error'
 
   devise_for :users, controllers: { omniauth_callbacks: "callbacks" }
 
