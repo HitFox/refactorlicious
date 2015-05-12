@@ -30,4 +30,30 @@ describe "A user navigating the site" do
       expect(page).to have_content("You have successfully submitted a new exercise")
     end
   end
+
+  context "when not logged in" do
+    let(:user) { create(:user) }
+    it "can sign up" do
+      visit "/users/sign_up"
+      fill_in "Email", with: "ramstein@ramstein.com"
+      fill_in "Password", with: "12345678"
+      fill_in "Password confirmation", with: "12345678"
+      fill_in "First name", with: "Buck"
+      fill_in "Last name", with: "Dich"
+      within(".actions") do
+        click_on "Sign up"
+      end
+      expect(page).to have_content("You have signed up successfully")
+    end
+
+    it "can log in" do
+      visit "/users/sign_in"
+      fill_in "Email", with: user.email
+      fill_in "Password", with: user.password
+      within(".actions") do
+        click_on "Log in"
+      end
+      expect(page).to have_content("Signed in successfully")
+    end
+  end
 end
