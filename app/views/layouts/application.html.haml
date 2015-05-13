@@ -23,7 +23,7 @@
             .menu-item= link_to "Admin", admin_exercises_path
           .menu-item= link_to "Logout", destroy_user_session_path
         - else
-          .menu-item= link_to "Login", new_user_session_path
+          .menu-item= link_to "Log in", new_user_session_path
           .menu-item= link_to "Sign up", new_user_registration_path
     .content
       = yield
