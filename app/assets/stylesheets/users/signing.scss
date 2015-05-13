@@ -1,0 +1,78 @@
+.signing {
+  background-color: $white;
+  margin:3em auto;
+  width:300px;
+  border: 1px solid #D7D7D7;
+  border-radius: 5px;
+  text-align: left;
+  padding: 40px;
+  position: relative;
+
+  input {
+    font-size: 15px;
+  }
+  .field input {
+    width:100%;
+    margin: 2px 0 10px 0;
+  }
+
+  h2 {
+    color: $green;
+    margin-top: 0;
+    font-size: 30px;
+  }
+
+  .remember_me, .forgot_password {
+    font-size: 13px;
+  }
+  .forgot_password {
+    color: $light-black
+  }
+
+  button {
+    background-color: $green;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  .or {
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    &:before {
+      border-top: 2px solid #dfdfdf;
+      content:"";
+      margin: 0 auto; /* this centers the line to the full width specified */
+      position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+      top: 50%; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+    }
+
+    span {
+      /* to hide the lines from behind the text, you have to set the background color the same as the container */
+      background: #fff;
+      padding: 0 10px;
+    }
+  }
+
+  .google {
+    background-color: $red;
+    border-radius: 5px;
+
+
+    a {
+      padding-left: 25px;
+      color: white;
+    }
+  }
+  .icon {
+    width: 10%;
+    float:left;
+    img {
+      position: relative;
+      bottom: 3px;
+    }
+ }
+}
+
