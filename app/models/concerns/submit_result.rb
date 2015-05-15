@@ -3,8 +3,14 @@ class SubmitResult
   attr_reader :type
 
   def initialize answer, keywords_hash
-    @syntax_errors = SubmitResult.find_syntax_errors(answer)
-    @type = determine_submit_result(answer, keywords_hash)
+    if !answer.has_valid_syntax
+      @syntax_errors = answer.syntax_errors
+      @type = SubmitResultType["has_syntax_errors"]
+    elsif SubmitResult.contains_key_words(answer, keywords_hash)
+      @type = SubmitResultType["successfull"]
+    else
+      @type = SubmitResultType["pending_refactoring"]
+    end
   end
 
   def is_successfull
@@ -14,29 +20,10 @@ class SubmitResult
   private
 
   def determine_submit_result answer, keywords_hash
-    if @syntax_errors
-      SubmitResultType["has_syntax_errors"]
-    elsif SubmitResult.contains_key_words(answer, keywords_hash)
-      SubmitResultType["successfull"]
-    else
-      SubmitResultType["pending_refactoring"]
-    end
+
   end
 
   class << self
-    def find_syntax_errors script
-      catch(:x) do
-        eval("throw :x
-          "+ script )
-      end
-    rescue SyntaxError => e
-      str = e.message.gsub(/\(eval\):\d+/) do |match|
-        match.gsub(/\d+/) do |match|
-          match.to_i - 1
-        end
-      end
-      str.gsub(/\(eval\)/, 'answer')
-    end
 
     def contains_key_words answer, keywords_hash
       keywords_hash.each do |word, times|
