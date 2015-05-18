@@ -12,7 +12,6 @@ describe "An admin managing exercises" do
     it "can update an exercise" do
       visit "/admin/exercises"
       click_on "Exercise 1"
-      save_and_open_page
       select('Inline Method', from: "Exercise category")
       select('10', from: 'Points')
       fill_in "Code to refactor", with: "Ramstein is awesome"

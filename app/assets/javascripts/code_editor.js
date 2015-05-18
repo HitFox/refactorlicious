@@ -30,43 +30,50 @@ function updateLocalStorage() {
 }
 
 function installSubmitHandler() {
-  $(".submit").click(checkIfValidAnswer);
+  $(".submit").click(submitAnswer);
 
   $("#close").click( function() {
-    $("#fail, #success, #message").hide();
+    $("#fail, #success, #syntax_errors, #message").hide();
   })
 }
 
-function checkIfValidAnswer() {
+function submitAnswer() {
   var localStorageID = $('.editor').attr('data-storage-id');
-  var expected_words = JSON.parse($("#key_words").text());
   var answer = localStorage.getItem(localStorageID);
-  var is_valid_answer = true;
-
-  if (answer) {
-    for (var word in expected_words) {
-      var reg_exp = new RegExp(word , 'g')
-      var count = (answer.match(reg_exp) || []).length;
-      if (expected_words[word] !== count) {
-        is_valid_answer = false;
-      }
-    }
-  } else {
-    is_valid_answer = false;
-  }
-
   $("#message").show();
-
-  if(!is_valid_answer) {
+  if(!answer) {
     $("#fail").show();
   } else {
-     $("#success").show();
-     $.ajax({
-       url: window.location.href + "/mark_as_finished",
-       method: "PATCH" });
+    $.ajax({
+      url: window.location.href + "/submit.json",
+      method: "PATCH",
+      data: {answer: answer} ,
+      success: function(submitResponse){
+        displaySubmitResult(submitResponse);
+      }
+    });
   }
 }
 
 function onExercisesShow() {
   return window.location.pathname.match(/^\/exercises\/\d+/) !== null;
 }
+
+function displaySubmitResult (submitResponse) {
+  switch (submitResponse['type']) {
+    case 'successfull':
+      $("#close").css({ "right": "1em"});
+      $("#success").show();
+      break;
+    case 'has_syntax_errors':
+      $("#close").css({ "right": "1.7em"});
+      $("#syntax_errors").show();
+      $("#syntax_errors pre").html(submitResponse['syntax_errors']);
+      break;
+    case 'pending_refactoring':
+      $("#close").css({ "right": "1em"});
+      $("#fail").show();
+      break;
+  }
+}
+

@@ -1,0 +1,3 @@
+successfull: "successfull"
+has_syntax_errors: "has_syntax_errors"
+pending_refactoring: "pending_refactoring"

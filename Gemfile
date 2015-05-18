@@ -39,6 +39,7 @@ gem 'redcarpet'
 gem 'coderay', '~> 1.1.0'
 gem 'draper', '~> 1.3'
 gem 'react-rails', '~> 1.0'
+gem 'valid_syntax', '0.1.1'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -62,4 +63,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'launchy', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
 end

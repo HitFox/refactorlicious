@@ -1,0 +1,74 @@
+.contribute_container {
+  margin: 0 8em 0 8em;
+
+  label, select, input, button {
+    display: inline-block;
+    float:left;
+    margin-top: 1.5em;
+    font-size: 1em;
+  }
+
+  label {
+    margin-right: 10px;
+    clear:both;
+  }
+
+  #exercise_key_words {
+    width: calc(100% - 158.4px);
+  }
+  .code {
+    clear:both;
+    width: 100%;
+    min-height: 31em;
+    background-color: $red;
+  }
+
+  .code_to_refactor {
+    @media screen and (min-width: $break-large) {
+      float: left;
+      border-right: solid $light-grey .1em;
+    }
+  }
+
+  .solution {
+    @media screen and (min-width: $break-large) {
+      float: right;
+      border-left: solid $light-grey .1em;
+    }
+  }
+
+  .code_to_refactor, .solution {
+    color: $white;
+    border-top: solid $light-grey 1.5em;
+    @media screen and (min-width: $break-large) {
+     width: 50%;
+   }
+
+   label {
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    text-transform: uppercase;
+  }
+}
+
+#code_editor, #solution_editor {
+  width: 100%;
+  height: 30em;
+  text-align: left;
+}
+
+#exercise_code_to_refactor, #exercise_solution {
+  display: none;
+}
+
+.submit {
+  display: block;
+}
+
+}
+
+.form-title {
+  margin:3.5em 0 2em 0;
+}
+

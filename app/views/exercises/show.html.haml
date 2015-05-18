@@ -20,16 +20,18 @@
   #wrapper<
     %pre= @exercise.code_to_refactor
   %footer
-    .hint Hint
-    .submit= link_to "Submit", "#",  data: { next_exercise: next_exercise.id }
+    %button.hint Hint
+    %button.submit Submit
     #message
       #success
         %p Nice refactoring!
         #next= link_to "Go to next exercise", exercise_path(next_exercise)
       #fail
-        %p Oops... review your code, something is wrong
+        %p Oops... review your code, your refactoring is not correct
+      #syntax_errors
+        %p There are syntax errors in your answer
+        %pre
       %p#close x
     .solution
       %h2 Solution
-      %pre.code-highlight= highlight(@exercise.code_to_refactor)
-    #key_words= @exercise.keywords_hash.to_json
+      %pre.code-highlight= highlight(@exercise.solution)

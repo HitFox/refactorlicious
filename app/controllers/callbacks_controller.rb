@@ -8,7 +8,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
       redirect_to exercises_path
     else
       flash[:alert] = "Sorry, but we could not log you in via Google!"
-      redirect_to error_session_path
+      redirect_to session_error_path
     end
   end
 end

@@ -1,1 +1,6 @@
-= render "form", exercise: @exercise
+%h2.form-title Edit exercise
+= form_for @exercise, url: admin_exercise_path(@exercise) do |f|
+  = f.label :status
+  = f.select(:status, Exercise.statuses.keys, selected: f.object.status)
+  = render "shared/form", f: f
+

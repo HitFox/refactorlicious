@@ -1,1 +1,4 @@
-= render "form", exercise: @exercise
+%h2.form-title Hey there buddy, thanks for wanting to contribute to our exponentionally growing platform.
+= form_for @exercise do |f|
+  = render "shared/form", f: f
+

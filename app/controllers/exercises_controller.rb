@@ -25,16 +25,19 @@ class ExercisesController < ApplicationController
     end
   end
 
-  def mark_as_finished
-    user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:exercise_id])
-    user_exercise.update_attribute(:status, "finished")
-    render nothing: true
+  def submit
+    @exercise = Exercise.find(params[:exercise_id])
+    @submitResult = SubmitResult.new(params[:answer], @exercise.keywords_hash)
+    if  @submitResult.is_successfull()
+      user_exercise = UserExercise.find_by(user_id: current_user.id, exercise_id: params[:exercise_id])
+      user_exercise.update_attribute(:status, "finished")
+    end
   end
 
   private
 
   def exercise_params
-    params.require(:exercise).permit(:points, :exercise_category_id, :code_to_refactor, :solution)
+    params.require(:exercise).permit(:answer, :points, :exercise_category_id, :code_to_refactor, :solution)
   end
 
 end

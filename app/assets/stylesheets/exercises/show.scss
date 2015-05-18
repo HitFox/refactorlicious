@@ -62,7 +62,7 @@
   position: fixed;
   left: calc(33%);
 
-  #success, #fail {
+  #success, #fail, #syntax_errors{
     display: none;
     position: absolute;
     top:0;
@@ -93,15 +93,18 @@
     }
   }
 
-  #fail {
+  #fail, #syntax_errors {
     background-color: $red;
     padding-top: 1.3em;
+  }
+
+  #syntax_errors{
+    overflow:auto;
   }
 
   #close {
     cursor: pointer;
     position:absolute;
-    right: 1em;
     top: 1em;
     color: $white;
     line-height: 0;
@@ -145,13 +148,6 @@
     .hint, .submit {
       display: inline-block;
       margin: 1em;
-      padding: .65em 1em;
-      color: $white;
-
-      &:hover {
-        cursor: pointer;
-        opacity: .8;
-      }
     }
 
     .hint {
@@ -161,12 +157,8 @@
     }
 
     .submit {
-      background-color: $green;
       position: absolute;
       right: .5em;
-      a {
-        color: $white;
-      }
     }
 
     .solution {
