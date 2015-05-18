@@ -1,8 +1,9 @@
 .or
   %span OR
-.google.button
-  .icon
-    = image_tag "google.svg"
-  - text = controller_name != "sessions" ?  "Sign up" : "Log in"
-  = link_to "#{text} with Google", omniauth_authorize_path(resource_name, resource_class.omniauth_providers.first)
-  %br/
+- text = controller_name != "sessions" ?  "Sign up" : "Log in"
+= link_to omniauth_authorize_path(resource_name, resource_class.omniauth_providers.first) do
+  .google.button
+    .icon
+      = image_tag "google.svg"
+    %span="#{text} with Google"
+
