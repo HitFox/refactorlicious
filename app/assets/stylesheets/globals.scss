@@ -147,7 +147,13 @@ button, .button {
     margin-bottom: 1.5em;
 }
 
-.error_explanation {
+.error_explanation, #error_explanation {
   color:red;
-  margin-bottom: 1em;
+  margin: 1.5em 0;
+  h2 {
+    font-size: 1.17em;
+  }
+  ul {
+    text-align: left;
+  }
 }
