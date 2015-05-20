@@ -1,9 +1,9 @@
 class ExerciseDecorator < Draper::Decorator
   delegate_all
 
-  def status
-    status = h.current_user.user_exercises_hash[object.id]
-    status.present? ? status : status = "not-started"
+  def user_progress
+    user_progress = h.current_user.user_exercises_hash[object.id]
+    user_progress.present? ? user_progress : user_progress = "not-started"
   end
 
   def difficulty_level
@@ -17,7 +17,7 @@ class ExerciseDecorator < Draper::Decorator
   end
 
   def icon_class
-    case status
+    case user_progress
     when "finished" then "icon-star-two"
     when "incomplete" then "icon-star-half"
     when "not-started" then "icon-star"

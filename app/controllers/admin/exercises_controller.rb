@@ -2,7 +2,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   before_action :set_exercise, only: [:update, :edit, :destroy]
 
   def index
-    @exercises = Exercise.all
+    @exercises = AdminExerciseDecorator.decorate_collection(Exercise.all)
     @filter_items = generate_filter_items
   end
 
@@ -10,8 +10,13 @@ class Admin::ExercisesController < Admin::AdminControllerBase
     respond_to do |format|
       if @exercise.update(exercise_params)
         format.json { render json: @exercise, status: :ok }
+        format.html { redirect_to admin_exercises_path, notice: "Exercise was successfully updated" }
       else
         format.json { render json: @exercise.errors, status: :internal_server_error }
+        format.html {
+          flash[:alert] = "Could not save exercise!"
+          render :edit
+        }
       end
     end
   end
@@ -23,7 +28,7 @@ class Admin::ExercisesController < Admin::AdminControllerBase
     respond_to do |format|
       if @exercise.destroy
         format.json { render json: @exercise, status: :ok }
-      else
+       else
         format.json { render json: @exercise.errors, status: :internal_server_error }
       end
     end
@@ -40,8 +45,9 @@ class Admin::ExercisesController < Admin::AdminControllerBase
   end
 
   def generate_filter_items
-    status = { labelName: "Status", options: Exercise.statuses.keys }
-    category = { labelName: "Category", options: ExerciseCategory.all.map(&:name) }
-    [status, category]
+    filters = {
+      "Status" => Exercise.statuses.keys.map{ |k| k.capitalize } ,
+      "Category" => ExerciseCategory.all.pluck(:name)
+    }
   end
 end

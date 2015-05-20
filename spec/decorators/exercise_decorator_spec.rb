@@ -25,21 +25,21 @@ describe ExerciseDecorator do
 
     context "Exercise not started" do
       it "returns the right class" do
-        allow(exercise).to receive(:status) { "not-started" }
+        allow(exercise).to receive(:user_progress) { "not-started" }
         expect(exercise.icon_class).to eq "icon-star"
       end
     end
 
     context "Exercise started" do
       it "returns the right class" do
-        allow(exercise).to receive(:status) { "incomplete" }
+        allow(exercise).to receive(:user_progress) { "incomplete" }
         expect(exercise.icon_class).to eq "icon-star-half"
       end
     end
 
     context "Exercise finished" do
       it "returns the right class" do
-        allow(exercise).to receive(:status) { "finished" }
+        allow(exercise).to receive(:user_progress) { "finished" }
         expect(exercise.icon_class).to eq "icon-star-two"
       end
     end

@@ -16,4 +16,15 @@ class Exercise < ActiveRecord::Base
       words = { "def" => solution.scan("def").count}
     end
   end
+
+  def category
+    Exercise.category_names[self.exercise_category_id]
+  end
+
+  private
+  class << self
+    def category_names
+      @@categories ||= Hash[ExerciseCategory.all.pluck(:id,:name)]
+    end
+  end
 end
